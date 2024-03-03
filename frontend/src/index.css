@@ -15,3 +15,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Custom styles */
+
+@layer base {
+  body {
+    @apply bg-white
+    dark:bg-gray-900
+    min-h-screen;
+  }
+}
+
+/* Component Styles */
+
+@layer components {
+  /* Navbar  */
+
+  nav {
+    @apply bg-white
+  dark:bg-gray-900
+  shadow-md
+  dark:shadow-lg;
+  }
+
+  .navList {
+    @apply max-w-screen-xl 
+    flex 
+    flex-wrap 
+    flex-col 
+    md:flex-row 
+    items-center 
+    justify-between 
+    text-center mx-auto p-4;
+  }
+}
