@@ -1,21 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
-
-import axios from "axios";
+import { useState } from "react";
 
 import { CocktailCard } from "./CocktailCard";
 
-export const CocktailsContainer = ({
-  query,
-  setQuery,
-  data,
-  setData,
-  querySubmitted,
-}) => {
+export const CocktailsContainer = ({ query, setQuery, data, setData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [urlFetch, setUrlFetch] = useState("");
 
-  console.log(querySubmitted);
+  console.log(query);
 
   const fetchCocktails = useCallback(async (querySubmitted) => {
     setIsLoading(true);
@@ -62,4 +53,5 @@ export const CocktailsContainer = ({
   }, [querySubmitted, fetchCocktails]);
 
   return <div>{data}</div>;
+  return <CocktailCard />;
 };

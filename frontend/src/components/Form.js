@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-export const Form = ({
-  query,
-  setQuery,
-  querySubmitted,
-  setQuerySubmitted,
-}) => {
+export const Form = ({ query, setQuery }) => {
   const [checked, setChecked] = useState(false);
   const [selected, setSelected] = useState(false);
 
@@ -42,8 +37,7 @@ export const Form = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuerySubmitted(query);
-    setQuery(query);
+    setQuery({ ...query, [e.target.name]: e.target.value });
   };
 
   return (
