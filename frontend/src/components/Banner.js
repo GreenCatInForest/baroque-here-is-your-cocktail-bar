@@ -7,7 +7,7 @@ export const Banner = () => {
         <img
           src={cocktailIcon}
           alt="cocktail logo"
-          // style={{ transform: "scaleX(-1)" }}
+          style={{ transform: "scaleX(-1)" }}
         />
         <h1 className="bannerBgTitle">BaroQue</h1>
       </div>

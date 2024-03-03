@@ -43,7 +43,7 @@ code {
     flex 
     flex-wrap 
     flex-col 
-    md:flex-row 
+    md:flex-row
     items-center 
     justify-between 
     text-center mx-auto p-4;
@@ -77,9 +77,8 @@ code {
     @apply font-bold
       tracking-tight 
       leading-none
-      text-4xl
-      md:text-5xl 
-      lg:text-6xl
+      text-5xl
+      md:text-6xl
       shadow-neutral-500
       text-center text-shadow;
   }
@@ -100,6 +99,6 @@ code {
   }
 
   .bannerBgInnerWrapper img {
-    @apply ml-2;
+    @apply ml-2 md:ml-0 w-3/12 md:w-1/12;
   }
 }
