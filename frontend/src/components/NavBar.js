@@ -28,6 +28,9 @@ export const NavBar = () => {
             </a>
           </li>
           <li>
+            <button>Menu Collapse</button>
+          </li>
+          <li>
             <a href="/" aria-current="true">
               Login/Join
             </a>
