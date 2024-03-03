@@ -66,6 +66,7 @@ export const Form = ({ query, setQuery }) => {
           value=""
           onChange={handleSelect}
         >
+          <option value="">Choose your type of cocktail</option>
           <option value="Ordinary Drink">Ordinary Drink</option>
           <option value="Cocktail">Cocktail</option>
           <option value="Milk / Float / Shake">Milk / Float / Shake</option>
