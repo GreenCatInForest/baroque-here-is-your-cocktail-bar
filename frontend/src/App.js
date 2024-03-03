@@ -6,8 +6,13 @@ import { Form } from "./components/Form";
 import { CocktailsContainer } from "./components/Cocktails/CocktailsContainer";
 
 export const App = () => {
+  // basic state for dark mode and hamburger menu
+
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+
+  // state for search queries
+
   const [query, setQuery] = useState({
     nameQuery: "",
     ingredientQuery: "",
@@ -15,16 +20,21 @@ export const App = () => {
     alcoholQuery: "",
   });
 
-  // Search Queries
+  //  state for data from API
 
-  console.log(query);
+  const [data, setData] = useState([]);
 
   return (
     <div className="App">
       <NavBar />
       <Banner />
       <Form query={query} setQuery={setQuery} />
-      <CocktailsContainer query={query} setQuery={setQuery} />
+      <CocktailsContainer
+        query={query}
+        setQuery={setQuery}
+        data={data}
+        setData={setData}
+      />
     </div>
   );
 };
