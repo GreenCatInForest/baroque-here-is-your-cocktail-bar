@@ -24,7 +24,7 @@ export const App = () => {
       <NavBar />
       <Banner />
       <Form query={query} setQuery={setQuery} />
-      <CocktailsContainer query={query} />
+      <CocktailsContainer query={query} setQuery={setQuery} />
     </div>
   );
 };
