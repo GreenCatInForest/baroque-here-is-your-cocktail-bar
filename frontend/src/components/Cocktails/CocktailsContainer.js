@@ -43,8 +43,8 @@ export const CocktailsContainer = ({
       //     c: `${query.categoryQuery}`,
       //   },
       headers: {
-        "X-RapidAPI-Key": "d52b9478eamsh1a748581a30ef40p1129f6jsnfd8f16a10bd4",
-        "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.XRapidAPIKey,
+        "X-RapidAPI-Host": process.env.XRapidAPIHost,
       },
     };
 
