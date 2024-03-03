@@ -48,4 +48,58 @@ code {
     justify-between 
     text-center mx-auto p-4;
   }
+  .bannerBg {
+    position: relative;
+    background-image: url("./assets/images/banner.jpg");
+    background-size: 120%;
+    @apply md:h-screen
+    bg-left;
+  }
+
+  .bannerBg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #d9ae94; /* adjust color and opacity as needed */
+    mix-blend-mode: multiply;
+    z-index: 0;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 5px grey;
+  }
+
+  .bannerBgTitle {
+    color: #ffe9ea;
+    @apply font-bold
+      tracking-tight 
+      leading-none
+      text-4xl
+      md:text-5xl 
+      lg:text-6xl
+      shadow-neutral-500
+      text-center text-shadow;
+  }
+
+  .bannerBgInnerWrapper {
+    position: relative;
+    z-index: 1;
+    @apply flex 
+    flex-col 
+    items-center 
+    justify-center 
+    h-full 
+    text-center 
+    py-20
+    md:py-0
+    gap-6
+    md:gap-5;
+  }
+
+  .bannerBgInnerWrapper img {
+    @apply ml-2;
+  }
 }
