@@ -18,6 +18,22 @@ module.exports = {
         "left-top": "left top",
         center: "center",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        josefinSansUni: ["Josefin Sans", "sans-serif"],
+        firaSans: ["Fira Sans", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        kanit: ["Kanit", "sans-serif"],
+        ubuntu: ["Ubuntu", "sans-serif"],
+        notoSans: ["Noto Sans", "sans-serif"],
+        ubuntuMono: ["Ubuntu Mono", "monospace"],
+        gwendolyne: ["Gwendolyn", "sans-serif"],
+        redressed: ["Redressed", "cursive"],
+        fondamento: ["Fondamento", "cursive"],
+        satisfy: ["Satisfy", "cursive"],
+        kaushanScript: ["Kaushan Script", "cursive"],
+        macondo: ["Macondo", "cursive"],
+      },
 
       colors: {
         premiumPink: "#e6b6be",
