@@ -7,15 +7,15 @@ import { CocktailsContainer } from "./components/Cocktails/CocktailsContainer";
 
 export const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Search Queries
-
-  const query = {
+  const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+  const [query, setQuery] = useState({
     nameQuery: "",
     ingredientQuery: "",
     categoryQuery: "",
     alcoholQuery: "",
-  };
+  });
+
+  // Search Queries
 
   console.log(query);
 
@@ -23,8 +23,8 @@ export const App = () => {
     <div className="App">
       <NavBar />
       <Banner />
-      <Form query={query} />
-      <CocktailsContainer />
+      <Form query={query} setQuery={setQuery} />
+      <CocktailsContainer query={query} />
     </div>
   );
 };
