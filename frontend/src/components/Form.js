@@ -30,7 +30,10 @@ export const Form = ({ query, setQuery, setQuerySubmitted }) => {
   };
 
   const handleIngredientChange = (e) => {
-    setQuery({ ...query, ingredientQuery: e.target.value });
+    let ingredientCapitalDigitForAPI =
+      e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+
+    setQuery({ ...query, ingredientQuery: ingredientCapitalDigitForAPI });
   };
 
   // form submission
