@@ -121,6 +121,11 @@ code {
 
   .cocktailsContainer {
     @apply max-w-screen-xl 
+    grid 
+    grid-flow-row-dense
+    text-center
+    align-middle
+    items-center
     mx-auto 
     p-4;
   }
@@ -136,7 +141,9 @@ code {
     text-center items-center mx-auto p-4;
   }
 
-  .cocktailsCards {
+  /* cocktails card mini container  */
+
+  .cocktailsMiniContainer {
     @apply grid
     grid-cols-1 
     md:grid-cols-2 
@@ -145,4 +152,17 @@ code {
     md:gap-5
     text-center;
   }
+
+  /* cocktail card */
+
+  .cocktailCard {
+    @apply bg-white 
+    dark:bg-gray-900 
+    shadow-md 
+    dark:shadow-lg 
+    p-4 
+    rounded-md 
+    text-center 
+    items-center 
+    justify
 }

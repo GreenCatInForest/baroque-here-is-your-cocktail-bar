@@ -92,7 +92,7 @@ export const CocktailsContainer = ({
       {!filteredArray ? (
         <h2>You have no cocktails yet, let's find something for you!</h2>
       ) : (
-        <div className="cocktailsCards">
+        <div className="cocktailsMiniContainer">
           {filteredArray.map((item) => (
             <CocktailCard key={item + Math.random()} item={item} />
           ))}
