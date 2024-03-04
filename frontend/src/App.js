@@ -24,7 +24,7 @@ export const App = () => {
 
   //  state for data from API
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState("");
 
   return (
     <div className="App">

@@ -43,6 +43,8 @@ export const CocktailsContainer = ({
     try {
       const response = await axios.request(options);
       console.log(response.data);
+      setData(response.data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -53,5 +55,5 @@ export const CocktailsContainer = ({
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
 
-  return <div>{data}</div>;
+  return <CocktailCard />;
 };
