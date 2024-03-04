@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 
 import { CocktailCard } from "./CocktailCard";
 
-export const CocktailsContainer = ({ query, setQuery, data, setData }) => {
+export const CocktailsContainer = ({
+  query,
+  setQuery,
+  data,
+  setData,
+  querySubmitted,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  console.log(query);
+  console.log(querySubmitted);
 
   const fetchCocktails = useCallback(async (querySubmitted) => {
     setIsLoading(true);
@@ -25,17 +32,11 @@ export const CocktailsContainer = ({ query, setQuery, data, setData }) => {
 
     const options = {
       method: "GET",
-      url: `https://the-cocktail-db.p.rapidapi.com/${urlFetch}`,
+      url: `https://www.thecocktaildb.com/api/json/v1/1/${urlFetch}`,
 
-      //   params: {
-      //     s: `${query.nameQuery}`,
-      //     i: `${query.nameIngredient}`,
-      //     a: `${query.categoryQuery}`,
-      //     c: `${query.categoryQuery}`,
-      //   },
       headers: {
         "X-RapidAPI-Key": process.env.XRapidAPIKey,
-        "X-RapidAPI-Host": process.env.XRapidAPIHost,
+        // "X-RapidAPI-Host": process.env.Host,
       },
     };
 
@@ -53,5 +54,4 @@ export const CocktailsContainer = ({ query, setQuery, data, setData }) => {
   }, [querySubmitted, fetchCocktails]);
 
   return <div>{data}</div>;
-  return <CocktailCard />;
 };

@@ -13,6 +13,8 @@ export const App = () => {
 
   // state for search queries
 
+  const [querySubmitted, setQuerySubmitted] = useState("");
+
   const [query, setQuery] = useState({
     nameQuery: "",
     ingredientQuery: "",
@@ -28,12 +30,19 @@ export const App = () => {
     <div className="App">
       <NavBar />
       <Banner />
-      <Form query={query} setQuery={setQuery} />
+      <Form
+        query={query}
+        setQuery={setQuery}
+        setQuerySubmitted={setQuerySubmitted}
+        querySubmitted={querySubmitted}
+      />
       <CocktailsContainer
         query={query}
         setQuery={setQuery}
         data={data}
         setData={setData}
+        querySubmitted={querySubmitted}
+        setQuerySubmitted={setQuerySubmitted}
       />
     </div>
   );
