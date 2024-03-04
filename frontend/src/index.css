@@ -164,5 +164,10 @@ code {
     rounded-md 
     text-center 
     items-center 
-    justify
+    justify;
+  }
+
+  .cocktailImg {
+    @apply object-cover w-96;
+  }
 }
