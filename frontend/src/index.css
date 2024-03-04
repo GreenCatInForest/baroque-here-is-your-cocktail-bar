@@ -116,4 +116,32 @@ code {
     md:gap-5 
     p-4;
   }
+
+  /* Cocktail Container */
+
+  .cocktailContainer {
+    @apply grid 
+    grid-cols-1 
+    md:grid-cols-2 
+    lg:grid-cols-3 
+    gap-4 
+    md:gap-5;
+  }
+
+  .cocktailsContainer::first-child {
+    @apply grid 
+    grid-cols-1
+    justify-center;
+  }
+
+  .cocktailsContainer h2 {
+    @apply font-josefinSansUni 
+    w-1/2
+    font-bold 
+    text-3xl 
+    md:text-4xl 
+    text-neutral-500
+    justify-center 
+    text-center items-center mx-auto p-4;
+  }
 }

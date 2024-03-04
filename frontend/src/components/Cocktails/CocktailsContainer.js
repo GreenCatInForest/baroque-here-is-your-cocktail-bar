@@ -75,7 +75,7 @@ export const CocktailsContainer = ({
     : (filteredArray = []);
 
   return (
-    <div>
+    <div className="cocktailsContainer">
       {isLoading && <h2>Loading...</h2>}
       {error && (
         <h2>
@@ -87,10 +87,10 @@ export const CocktailsContainer = ({
         <h2>No cocktails found. Try another query</h2>
       )}
       {filteredArray.length === 0 && !querySubmitted && (
-        <h2>You have no cocktails, let's find something for you!</h2>
+        <h2>You have no cocktails yet, let's find something for you!</h2>
       )}
       {!filteredArray ? (
-        <h2>You have no cocktails, let's find something for you!</h2>
+        <h2>You have no cocktails yet, let's find something for you!</h2>
       ) : (
         filteredArray.map((item) => (
           <CocktailCard key={item + Math.random()} item={item} />
