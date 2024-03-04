@@ -18,88 +18,36 @@ export const CocktailsContainer = ({
 
   const fetchCocktails = useCallback(
     async (querySubmitted) => {
-      let tempCocktailData = [];
-
       setIsLoading(true);
       console.log(querySubmitted);
 
-      // search by ingredient
+      const urls = [
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`,
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${querySubmitted.categoryQuery}`,
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${querySubmitted.alcoholQuery}`,
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.nameQuery}`,
+      ];
+
       try {
-        const cocktailByIngredient = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`,
-          {
-            headers: {
-              "X-RapidAPI-Key": apiKey,
-            },
-          }
+        const data = await Promise.all(
+          urls.map((url) =>
+            axios
+              .get(url, {
+                headers: {
+                  "X-RapidAPI-Key": apiKey,
+                },
+              })
+              .then((response) => response.data.drinks)
+          )
         );
-        console.log(cocktailByIngredient.data);
-        cocktailByIngredient &&
-          tempCocktailData.push(cocktailByIngredient.data);
+
+        const tempCocktailData = [].concat(...data);
+        setData(tempCocktailData);
       } catch (error) {
         setError(error);
       }
 
-      // search by category
-
-      try {
-        const cocktailByCategory = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${querySubmitted.categoryQuery}`,
-          {
-            headers: {
-              "X-RapidAPI-Key": apiKey,
-            },
-          }
-        );
-        console.log(cocktailByCategory.data);
-        cocktailByCategory && tempCocktailData.push(cocktailByCategory.data);
-      } catch (error) {
-        setError(error);
-      }
-
-      // search by alcohol
-
-      try {
-        console.log(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${querySubmitted.alcoholQuery}`
-        );
-        const cocktailByAlcohol = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${querySubmitted.alcoholQuery}`,
-          {
-            headers: {
-              "X-RapidAPI-Key": apiKey,
-            },
-          }
-        );
-        console.log(cocktailByAlcohol.data);
-        cocktailByAlcohol && tempCocktailData.push(cocktailByAlcohol.data);
-      } catch (error) {
-        setError(error);
-      }
-
-      if (
-        querySubmitted.nameQuery === "undefined" ||
-        querySubmitted.nameQuery === "" ||
-        querySubmitted.nameQuery === null
-      )
-        return "null";
-      else {
-        try {
-          const cocktailByName = await axios.get(
-            `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.nameQuery}`,
-            {
-              headers: {
-                "X-RapidAPI-Key": apiKey,
-              },
-            }
-          );
-          console.log(cocktailByName.data);
-          tempCocktailData.push(cocktailByName.data);
-        } catch (error) {
-          setError(error);
-        }
-      }
-      setData(tempCocktailData);
+      setIsLoading(false);
     },
     [setData, apiKey]
   );
