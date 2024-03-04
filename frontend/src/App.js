@@ -16,10 +16,10 @@ export const App = () => {
   const [querySubmitted, setQuerySubmitted] = useState("");
 
   const [query, setQuery] = useState({
-    nameQuery: "",
-    ingredientQuery: "",
-    categoryQuery: "",
-    alcoholQuery: "",
+    nameQuery: undefined,
+    ingredientQuery: undefined,
+    categoryQuery: undefined,
+    alcoholQuery: undefined,
   });
 
   //  state for data from API

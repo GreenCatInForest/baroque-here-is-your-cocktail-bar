@@ -55,7 +55,7 @@ export const CocktailsContainer = ({
   useEffect(() => {
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
-
+  console.log(data);
   // filter the data to remove any undefined, null, or empty data
   let filteredArray = [];
 
@@ -68,8 +68,13 @@ export const CocktailsContainer = ({
           item !== "" &&
           // check if the recipe is available. If not, it'll not be displayed
           // it can be solved, but on the next stage after MVP
-
-          item.hasOwnProperty("strInstructions")
+          item.hasOwnProperty("strDrinkThumb")
+          //  && item.hasOwnProperty("strIngredient1")
+          //     "strIngredient2" ||
+          //     "strIngredient3" ||
+          //     "strIngredient4" ||
+          //     "strIngredient5"
+          // )
         );
       }))
     : (filteredArray = []);
