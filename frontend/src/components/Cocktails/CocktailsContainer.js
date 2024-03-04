@@ -52,34 +52,6 @@ export const CocktailsContainer = ({
     [setData, apiKey]
   );
 
-  // querySubmitted.nameQuery !== "" &&
-  //   (urlFetch = `search.php?s=${querySubmitted.nameQuery}`);
-  // querySubmitted.nameIngredient !== "" &&
-  //   (urlFetch = `filter.php?i=${querySubmitted.nameIngredient}`);
-  // querySubmitted.Alcoholic !== "" &&
-  //   (urlFetch = `filter.php?a=${querySubmitted.categoryQuery}`);
-  // querySubmitted.categoryQuery !== "" &&
-  //   (urlFetch = `filter.php?c=${querySubmitted.categoryQuery}`);
-
-  // const options = {
-  //   method: "GET",
-  //   url: `https://www.thecocktaildb.com/api/json/v1/1/${urlFetch}`,
-
-  //   headers: {
-  //     "X-RapidAPI-Key": process.env.XRapidAPIKey,
-  //     // "X-RapidAPI-Host": process.env.Host,
-  //   },
-  // };
-
-  // try {
-  //   const response = await axios.request(options);
-  //   console.log(response.data);
-  //   setData(response.data);
-  //   console.log(data);
-  // } catch (error) {
-  //   console.error(error);
-  // }, []);
-
   useEffect(() => {
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
