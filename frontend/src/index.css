@@ -104,4 +104,16 @@ code {
   .bannerBgInnerWrapper img {
     @apply ml-2 md:ml-0 w-3/12 md:w-1/12;
   }
+
+  /* Form search */
+
+  .formCocktailSearch {
+    @apply flex 
+    flex-col 
+    items-center 
+    justify-center 
+    gap-4 
+    md:gap-5 
+    p-4;
+  }
 }

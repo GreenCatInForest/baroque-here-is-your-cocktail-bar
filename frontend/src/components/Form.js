@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export const Form = ({ query, setQuery, setQuerySubmitted }) => {
   const [checked, setChecked] = useState(false);
   const [selected, setSelected] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
 
   // Search Queries
 
@@ -21,6 +22,7 @@ export const Form = ({ query, setQuery, setQuerySubmitted }) => {
     selected
       ? setQuery({ ...query, categoryQuery: e.target.value })
       : setQuery({ ...query, categoryQuery: e.target.value });
+    setSelectedOption(e.target.value);
   };
 
   // input for name and ingredient search
@@ -45,7 +47,7 @@ export const Form = ({ query, setQuery, setQuerySubmitted }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="formCocktailSearch">
         <input
           type="text"
           name="nameQuery"
@@ -66,7 +68,7 @@ export const Form = ({ query, setQuery, setQuerySubmitted }) => {
         <select
           id="categoryQuery"
           name="categoryQuery"
-          value=""
+          value={selectedOption}
           onChange={handleSelect}
         >
           <option value="">Choose your type of cocktail</option>
