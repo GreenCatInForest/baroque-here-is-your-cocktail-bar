@@ -13,6 +13,7 @@ export const CocktailsContainer = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const apiKey = process.env.XRapidAPIKey;
+  const [cocktails, setCocktails] = useState([]);
 
   console.log(querySubmitted);
 
@@ -56,7 +57,46 @@ export const CocktailsContainer = ({
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
 
-  console.log(data);
+  let filteredArray = [];
+  Array.isArray(data)
+    ? (filteredArray = data.filter((item) => {
+        return item !== undefined && item !== null && item !== "";
+      }))
+    : (filteredArray = []);
+  console.log(filteredArray);
 
-  return <CocktailCard />;
+  // const clearData = data.filter((item) => {
+  //   return item.value !== null && item.value !== undefined && item.value !== "";
+  // });
+
+  // console.log(clearData);
+
+  // {
+  //   if (data === undefined || data === null || data === "") {
+  //     return "You have no cocktails, let's find something for you!";
+  //   } else {
+  //     return data.map((item) => (
+  //       <CocktailCard key={Math.random() + item + Math.random()} item={item} />
+  //     ));
+  //   }
+  // }
+
+  return (
+    <div>
+      {isLoading && <h2>Loading...</h2>}
+      {error && (
+        <h2>
+          It seems something went wrong. Try again with another query please{" "}
+          {error}
+        </h2>
+      )}
+      {!filteredArray ? (
+        <h2>You have no cocktails, let's find something for you!</h2>
+      ) : (
+        filteredArray.map((item) => (
+          <CocktailCard key={item + Math.random()} item={item} />
+        ))
+      )}
+    </div>
+  );
 };
