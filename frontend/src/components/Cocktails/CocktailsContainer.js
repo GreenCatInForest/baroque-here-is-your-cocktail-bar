@@ -20,15 +20,14 @@ export const CocktailsContainer = ({
 
     let urlFetch = "";
 
-    if (querySubmitted.nameQuery !== "") {
-      urlFetch = `search.php?s=${querySubmitted.nameQuery}`;
-    } else if (querySubmitted.nameIngredient !== "") {
-      urlFetch = `filter.php?i=${querySubmitted.nameIngredient}`;
-    } else if (querySubmitted.Alcoholic !== "") {
-      urlFetch = `filter.php?a=${querySubmitted.categoryQuery}`;
-    } else if (querySubmitted.categoryQuery !== "") {
-      urlFetch = `filter.php?c=${querySubmitted.categoryQuery}`;
-    }
+    querySubmitted.nameQuery !== "" &&
+      (urlFetch = `search.php?s=${querySubmitted.nameQuery}`);
+    querySubmitted.nameIngredient !== "" &&
+      (urlFetch = `filter.php?i=${querySubmitted.nameIngredient}`);
+    querySubmitted.Alcoholic !== "" &&
+      (urlFetch = `filter.php?a=${querySubmitted.categoryQuery}`);
+    querySubmitted.categoryQuery !== "" &&
+      (urlFetch = `filter.php?c=${querySubmitted.categoryQuery}`);
 
     const options = {
       method: "GET",
