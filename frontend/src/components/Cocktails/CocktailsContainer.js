@@ -13,7 +13,6 @@ export const CocktailsContainer = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const apiKey = process.env.XRapidAPIKey;
-  const [cocktails, setCocktails] = useState([]);
 
   console.log(querySubmitted);
 
@@ -57,29 +56,23 @@ export const CocktailsContainer = ({
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
 
+  // filter the data to remove any undefined, null, or empty data
   let filteredArray = [];
+
+  // check if the data is array
   Array.isArray(data)
     ? (filteredArray = data.filter((item) => {
-        return item !== undefined && item !== null && item !== "";
+        return (
+          item !== undefined &&
+          item !== null &&
+          item !== "" &&
+          // check if the recipe is available. If not, it'll not be displayed
+          // it can be solved, but on the next stage after MVP
+
+          item.hasOwnProperty("strInstructions")
+        );
       }))
     : (filteredArray = []);
-  console.log(filteredArray);
-
-  // const clearData = data.filter((item) => {
-  //   return item.value !== null && item.value !== undefined && item.value !== "";
-  // });
-
-  // console.log(clearData);
-
-  // {
-  //   if (data === undefined || data === null || data === "") {
-  //     return "You have no cocktails, let's find something for you!";
-  //   } else {
-  //     return data.map((item) => (
-  //       <CocktailCard key={Math.random() + item + Math.random()} item={item} />
-  //     ));
-  //   }
-  // }
 
   return (
     <div>
