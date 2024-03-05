@@ -2,6 +2,8 @@ import { useThemeContext } from "../contexts/themeContext";
 
 import darkThemeToggleImg from "../assets/images/icons8-owl-64.png";
 import darkThemeToggleImgLight from "../assets/images/icons8-owl-64w.png";
+import darkThemeToggleImgDrink from "../assets/images/icons8-cocktail-64.png";
+import darkThemeToggleImgDrinkLight from "../assets/images/icons8-cocktail-64w.png";
 
 export const NavBar = () => {
   const { isDarkTheme, setIsDarkTheme } = useThemeContext();
@@ -17,11 +19,20 @@ export const NavBar = () => {
           <span>
             <a href="/">YK APPS</a>
           </span>
-          <li onClick={handleDarkTheme}>
+          <li onClick={handleDarkTheme} className="toggleDarkThemeContainer">
             <img
               src={!isDarkTheme ? darkThemeToggleImg : darkThemeToggleImgLight}
               alt="dark theme toggle"
               className="toggleDarkTheme"
+            />
+            <img
+              src={
+                !isDarkTheme
+                  ? darkThemeToggleImgDrink
+                  : darkThemeToggleImgDrinkLight
+              }
+              alt="dark theme toggle"
+              className="toggleDarkThemeDrink"
             />
           </li>
           {/* <li>
