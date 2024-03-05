@@ -22,7 +22,8 @@ export const CocktailsContainer = ({
       console.log(querySubmitted);
 
       const urls = [
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`,
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.ingredientQuery}`, // search ingredient in ingredient database
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`, // search ingredient in name database
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${querySubmitted.categoryQuery}`,
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${querySubmitted.alcoholQuery}`,
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.nameQuery}`,
@@ -55,20 +56,19 @@ export const CocktailsContainer = ({
   useEffect(() => {
     fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
-  console.log(data);
+
   // filter the data to remove any undefined, null, or empty data
   let filteredArray = [];
 
   // check if the data is array
   Array.isArray(data)
-    ? (filteredArray = data.filter((item) => {
+    ? // filter falsy data from the array
+      (filteredArray = data.filter((item) => {
         return (
-          item !== undefined &&
-          item !== null &&
-          item !== "" &&
+          item !== undefined && item !== null && item !== ""
           // check if the recipe is available. If not, it'll not be displayed
           // it can be solved, but on the next stage after MVP
-          item.hasOwnProperty("strDrinkThumb")
+          // && item.hasOwnProperty("strDrinkThumb")
           //  && item.hasOwnProperty("strIngredient1")
           //     "strIngredient2" ||
           //     "strIngredient3" ||
@@ -78,6 +78,33 @@ export const CocktailsContainer = ({
         );
       }))
     : (filteredArray = []);
+
+  // additional request if needed to get the recipe
+  // let additionalRequestData = [];
+
+  // Array.isArray(filteredArray) &&
+  //   filteredArray.map(async (item) => {
+  //     !item.hasOwnProperty("strIngredient1")
+  //       ? await axios
+  //           .get(
+  //             `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item.strDrink}`,
+  //             {
+  //               headers: {
+  //                 "X-RapidAPI-Key": apiKey,
+  //               },
+  //             }
+  //           )
+  //           .then((response) => response.data.drinks)
+  //           .then((data) => {
+  //             let cleanData = data.flat([[[]]]);
+  //             console.log(cleanData);
+  //             return additionalRequestData.push(cleanData);
+  //           })
+  //           .catch((error) => setError(error))
+  //       : console.log("No additional request needed");
+  //   });
+
+  // console.log(additionalRequestData);
 
   return (
     <div className="cocktailsContainer">
