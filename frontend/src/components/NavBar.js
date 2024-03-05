@@ -1,5 +1,8 @@
 import { useThemeContext } from "../contexts/themeContext";
 
+import darkThemeToggleImg from "../assets/images/icons8-owl-64.png";
+import darkThemeToggleImgLight from "../assets/images/icons8-owl-64w.png";
+
 export const NavBar = () => {
   const { isDarkTheme, setIsDarkTheme } = useThemeContext();
 
@@ -14,10 +17,14 @@ export const NavBar = () => {
           <span>
             <a href="/">YK APPS</a>
           </span>
-          <li>
-            <button onClick={handleDarkTheme}>Dark Mode/Light Mode</button>
+          <li onClick={handleDarkTheme}>
+            <img
+              src={!isDarkTheme ? darkThemeToggleImg : darkThemeToggleImgLight}
+              alt="dark theme toggle"
+              className="toggleDarkTheme"
+            />
           </li>
-          <li>
+          {/* <li>
             <a href="/" aria-current="true">
               Explore
             </a>
@@ -26,7 +33,7 @@ export const NavBar = () => {
             <a href="/" aria-current="true">
               Create
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/your-cocktail-selection" aria-current="true">
               Your Cocktail Selection
@@ -40,11 +47,11 @@ export const NavBar = () => {
           <li>
             <button>Menu Collapse</button>
           </li>
-          <li>
+          {/* <li>
             <a href="/" aria-current="true">
               Login/Join
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>
