@@ -1,9 +1,7 @@
 import { useState } from "react";
 
+import { Home } from "./pages/Home";
 import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Form } from "./components/Form";
-import { CocktailsContainer } from "./components/Cocktails/CocktailsContainer";
 import { Footer } from "./components/Footer";
 
 export const App = () => {
@@ -12,39 +10,10 @@ export const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
 
-  // state for search queries
-
-  const [querySubmitted, setQuerySubmitted] = useState("");
-
-  const [query, setQuery] = useState({
-    nameQuery: undefined,
-    ingredientQuery: undefined,
-    categoryQuery: undefined,
-    alcoholQuery: undefined,
-  });
-
-  //  state for data from API
-
-  const [data, setData] = useState("");
-
   return (
     <div className="App">
       <NavBar />
-      <Banner />
-      <Form
-        query={query}
-        setQuery={setQuery}
-        setQuerySubmitted={setQuerySubmitted}
-        querySubmitted={querySubmitted}
-      />
-      <CocktailsContainer
-        query={query}
-        setQuery={setQuery}
-        data={data}
-        setData={setData}
-        querySubmitted={querySubmitted}
-        setQuerySubmitted={setQuerySubmitted}
-      />
+      <Home />
       <Footer />
     </div>
   );

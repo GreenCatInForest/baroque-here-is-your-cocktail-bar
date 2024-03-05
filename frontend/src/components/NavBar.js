@@ -18,7 +18,7 @@ export const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="/" aria-current="true">
+            <a href="/your-cocktail-selection" aria-current="true">
               Your Cocktail Selection
             </a>
           </li>
