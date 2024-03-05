@@ -3,7 +3,9 @@ export const NavBar = () => {
     <div className="navWrapper">
       <nav>
         <ul className="navList">
-          <span>YK APPS</span>
+          <span>
+            <a href="/">YK APPS</a>
+          </span>
           <li>
             <button>Dark Mode/Light Mode</button>
           </li>
