@@ -4,6 +4,7 @@ import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Form";
 import { CocktailsContainer } from "./components/Cocktails/CocktailsContainer";
+import { Footer } from "./components/Footer";
 
 export const App = () => {
   // basic state for dark mode and hamburger menu
@@ -44,6 +45,7 @@ export const App = () => {
         querySubmitted={querySubmitted}
         setQuerySubmitted={setQuerySubmitted}
       />
+      <Footer />
     </div>
   );
 };
