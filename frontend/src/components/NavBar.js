@@ -1,4 +1,12 @@
+import { useThemeContext } from "../contexts/themeContext";
+
 export const NavBar = () => {
+  const { isDarkTheme, setIsDarkTheme } = useThemeContext();
+
+  const handleDarkTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
   return (
     <div className="navWrapper">
       <nav>
@@ -7,7 +15,7 @@ export const NavBar = () => {
             <a href="/">YK APPS</a>
           </span>
           <li>
-            <button>Dark Mode/Light Mode</button>
+            <button onClick={handleDarkTheme}>Dark Mode/Light Mode</button>
           </li>
           <li>
             <a href="/" aria-current="true">

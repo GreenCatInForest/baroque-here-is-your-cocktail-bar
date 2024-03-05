@@ -3,23 +3,25 @@ import { createContext, useState, useContext, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
-    isDarkMode
-      ? document.body.classList.add("darkMode") &&
-        document.body.classList.remove("lightMode")
-      : document.body.classList.remove("darkMode") &&
-        document.body.classList.add("lightMode");
-  }, [isDarkMode]);
+    if (isDarkTheme) {
+      document.body.classList.add("darkTheme");
+      document.body.classList.remove("lightTheme");
+    } else {
+      document.body.classList.add("lightTheme");
+      document.body.classList.remove("darkTheme");
+    }
+  }, [isDarkTheme]);
 
   return (
-    <ThemeProvider.Provider value={{ isDarkMode, setIsDarkMode }}>
+    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
       {children}
-    </ThemeProvider.Provider>
+    </ThemeContext.Provider>
   );
 };
 
 export const useThemeContext = () => {
-  return useContext(ThemeProvider);
+  return useContext(ThemeContext);
 };
