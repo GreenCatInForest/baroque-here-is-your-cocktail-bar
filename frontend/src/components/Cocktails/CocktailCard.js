@@ -1,5 +1,23 @@
+import { useState, useEffect } from "react";
+
 export const CocktailCard = ({ item }) => {
   console.log(item);
+
+  const [isSelected, setIsSelected] = useState(false);
+  const [mySelection, setMySelection] = useState([]);
+
+  const handleAddToSelection = (event) => {
+    event.preventDefault();
+    setIsSelected(true);
+    setMySelection(localStorage.setItem("item", JSON.stringify(item)));
+  };
+
+  // const selectionsFromLS = JSON.parse(localStorage.getItem("selection")) || [];
+
+  // useEffect(() => {
+  //   const newSelections = [...selectionsFromLS, selection];
+  //   localStorage.setSelection("selection", JSON.stringify(selection));
+  // }, [selection]);
 
   const alcoholCocktail = item.strAlcoholic;
   const categoryCocktail = item.strCategory;
@@ -44,7 +62,7 @@ export const CocktailCard = ({ item }) => {
           {strMeasure5Cocktail} {strIngredient5Cocktail}
         </li>
       </ul>
-      <button>Add to favourites</button>
+      <button onClick={handleAddToSelection}>Add to favourites</button>
       <button>Send to the friend</button>
     </div>
   );
