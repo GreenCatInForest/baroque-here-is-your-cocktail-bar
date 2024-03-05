@@ -22,21 +22,37 @@ code {
 
 @layer base {
   body {
+    @apply min-h-screen;
+  }
+
+  .lightTheme {
     @apply bg-white
-    dark:bg-gray-900
-    min-h-screen;
+    text-gray-900;
+  }
+
+  .darkTheme {
+    @apply bg-gray-900
+    text-white;
   }
 }
 
 /* Component Styles */
 
 @layer components {
+  .lightTheme {
+    @apply bg-white
+    text-gray-900;
+  }
+
+  .darkTheme {
+    @apply bg-gray-900
+    text-white;
+  }
+
   /* Navbar  */
 
   nav {
-    @apply bg-white
-  dark:bg-gray-900
-  shadow-md
+    @apply shadow-md
   dark:shadow-lg;
   }
 

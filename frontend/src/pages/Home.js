@@ -21,7 +21,7 @@ export const Home = () => {
   const [data, setData] = useState("");
 
   return (
-    <div>
+    <div className="theme">
       <Banner />
       <Form
         query={query}

@@ -8,7 +8,7 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="navWrapper">
+    <div className="navWrapper theme">
       <nav>
         <ul className="navList">
           <span>

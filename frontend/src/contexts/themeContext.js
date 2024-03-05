@@ -6,13 +6,19 @@ export const ThemeProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
-    if (isDarkTheme) {
-      document.body.classList.add("darkTheme");
-      document.body.classList.remove("lightTheme");
-    } else {
-      document.body.classList.add("lightTheme");
-      document.body.classList.remove("darkTheme");
-    }
+    const applyThemeToElements = (elements, themeClass) => {
+      elements.forEach((element) => {
+        element.classList.add(themeClass);
+        element.classList.remove(
+          themeClass === "lightTheme" ? "darkTheme" : "lightTheme"
+        );
+      });
+    };
+    const themeElements = document.querySelectorAll(".theme");
+    applyThemeToElements(
+      themeElements,
+      isDarkTheme ? "darkTheme" : "lightTheme"
+    );
   }, [isDarkTheme]);
 
   return (
