@@ -170,4 +170,17 @@ code {
   .cocktailImg {
     @apply object-cover w-96;
   }
+
+  /* Footer */
+
+  .footerWrapper {
+    @apply max-w-screen-xl 
+    flex 
+    flex-wrap 
+    flex-col 
+    md:flex-row
+    items-center 
+    justify-between 
+    text-center mx-auto p-4;
+  }
 }
