@@ -9,29 +9,22 @@ import {
 } from "react-router-dom";
 
 import CustomRouter from "./CustomRouter";
-import { Home } from "./pages/Home";
+import { ThemeProvider } from "./contexts/themeContext";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 
 export const App = () => {
   // basic state for dark mode and hamburger menu
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
 
   return (
     <>
-      <NavBar />
-      <RouterProvider router={CustomRouter}></RouterProvider>
-      <Footer />
+      <ThemeProvider>
+        <NavBar />
+        <RouterProvider router={CustomRouter}></RouterProvider>
+        <Footer />
+      </ThemeProvider>
     </>
   );
 };
-
-//
-//     <div className="App">
-//       <NavBar />
-//       <Home />
-//       <Footer />
-//     </div>
-//   );
