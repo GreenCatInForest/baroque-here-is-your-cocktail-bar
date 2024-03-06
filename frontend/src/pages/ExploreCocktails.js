@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormContext } from "../contexts/formContext";
 import { Form } from "../components/Form";
+import { YouTubeForm } from "../components/YouTubeForm";
 import { CocktailsContainer } from "../components/Cocktails/CocktailsContainer";
 
 export const ExploreCocktails = () => {
@@ -22,6 +23,7 @@ export const ExploreCocktails = () => {
         <article className={`${className}`} onClick={expandPage}>
           <h2>Explore</h2>
           <p>Find YouTube Cocktail Recipe</p>
+          <YouTubeForm />
           <p>Find Best Cocktail Bar Near Me</p>
           <p>Find Cocktail Recipes</p>
           <Form
