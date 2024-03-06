@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { ThemeProvider } from "./contexts/themeContext";
+import { FormProvider } from "./contexts/formContext";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { RouterProvider } from "react-router-dom";
@@ -14,9 +15,14 @@ export const App = () => {
   return (
     <>
       <ThemeProvider>
-        <NavBar />
-        <RouterProvider router={CustomRouter}></RouterProvider>
-        <Footer />
+        <FormProvider>
+          <NavBar
+            isMenuCollapsed={isMenuCollapsed}
+            setIsMenuCollapsed={setIsMenuCollapsed}
+          />
+          <RouterProvider router={CustomRouter}></RouterProvider>
+          <Footer />
+        </FormProvider>
       </ThemeProvider>
     </>
   );

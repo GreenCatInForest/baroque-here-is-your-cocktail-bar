@@ -1,24 +1,13 @@
 import { useState } from "react";
-
+import { useFormContext } from "../contexts/formContext";
 import { Banner } from "../components/Banner";
 import { Form } from "../components/Form";
 import { CocktailsContainer } from "../components/Cocktails/CocktailsContainer";
 
 export const Home = () => {
   // state for search queries
-
-  const [querySubmitted, setQuerySubmitted] = useState("");
-
-  const [query, setQuery] = useState({
-    nameQuery: undefined,
-    ingredientQuery: undefined,
-    categoryQuery: undefined,
-    alcoholQuery: undefined,
-  });
-
-  //  state for data from API
-
-  const [data, setData] = useState("");
+  const { querySubmitted, setQuerySubmitted, query, setQuery, data, setData } =
+    useFormContext();
 
   return (
     <div className="theme">
