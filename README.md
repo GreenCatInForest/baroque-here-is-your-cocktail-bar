@@ -5,7 +5,7 @@ Mobile responsive App allows users to search the cocktails and keep the recipes 
 ## Tech Stack and Frameworks
 
 ### React.js
-### React Hooks: UseContext, UsEffect, UseCallBack, UseState. 
+### React Hooks: UseContext, UsEffect, UseCallBack, UseState 
 ### JavaScript
 ### Fetch API 
 ### Axios
