@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { YourCocktailSelection } from "./pages/YourCocktailSelection";
-import { Form } from "./components/Form";
+import { ExploreCocktails } from "./pages/ExploreCocktails";
 
 const CustomRouter = createBrowserRouter([
   {
@@ -19,8 +19,8 @@ const CustomRouter = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/explore-the-cocktails",
-    element: <Form />,
+    path: "/explore-cocktails",
+    element: <ExploreCocktails />,
   },
 ]);
 
