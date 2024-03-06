@@ -215,6 +215,18 @@ code {
     gap-3;
   }
 
+  /* Your Cocktail Selection in Local Storage */
+
+  .yourCocktailSelection {
+    @apply max-w-screen-xl 
+    flex 
+    flex-wrap 
+    flex-col 
+    items-center 
+    justify-between 
+    text-center mx-auto p-4;
+  }
+
   /* Footer */
 
   .footerWrapper {

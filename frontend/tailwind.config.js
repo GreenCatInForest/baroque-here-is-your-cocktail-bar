@@ -55,6 +55,7 @@ module.exports = {
         incandescentVermillion8: "#ffd3d4",
         incandescentVermillion9: "#ffe9ea",
         desertSand: "#D9AE94",
+        rosewood: "#65000b",
         beaver: "#997B66",
         mossGreen: "#9B9B7A",
         peachYellow: "#F1DCA7",
