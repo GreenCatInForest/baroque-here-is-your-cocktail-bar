@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useFormContext } from "../contexts/formContext";
 import { Form } from "../components/Form";
 import { CocktailsContainer } from "../components/Cocktails/CocktailsContainer";
@@ -6,20 +7,28 @@ export const ExploreCocktails = () => {
   const { querySubmitted, setQuerySubmitted, query, setQuery, data, setData } =
     useFormContext();
 
+  const [expand, setExpand] = useState(false);
+  const [className, setClassName] = useState("");
+
+  const expandPage = () => setExpand(!expand);
+
+  useEffect(() => {
+    expand
+      ? setClassName("md:col-span-2 md:p-24")
+      : setClassName("md:col-span-1 md:p-0");
+  }, [expand]);
+
   return (
     <div>
-      <div className="grid grid-flow-row-dense grid-cols-2 grid-rows-2 justify-center text-center">
-        <article>
-          <h1>Explore. Create. Enjoy.</h1>
-          <div>Find cocktail recipe</div>
-        </article>
-
-        <article className="col-span-1 bg-strawberryFreeze p-56">
+      <div className="exploreCreate">
+        <article
+          className={`${className} bg-strawberryFreeze`}
+          onClick={expandPage}
+        >
           <h2>Explore</h2>
           <p>Find YouTube Cocktail Recipe</p>
+          <p>Find Best Cocktail Bar Near Me</p>
           <p>Find Cocktail Recipes</p>
-          <p></p>
-
           <Form
             query={query}
             setQuery={setQuery}
@@ -28,7 +37,7 @@ export const ExploreCocktails = () => {
           />
         </article>
 
-        <article className="col-span-1 bg-desertSand p-56 w-full">
+        <article className={`${className} bg-desertSand`} onClick={expandPage}>
           <h2>Create</h2>
           <button className="bg-rosewood text-white rounded h-1/2">
             Add Your Cocktail Recipe

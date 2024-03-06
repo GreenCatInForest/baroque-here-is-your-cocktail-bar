@@ -62,6 +62,7 @@ module.exports = {
         sunglow: "#FFCB69",
         earthYellow: "#E8AC65",
         test: "#84a59d",
+        arizonaStone: "#00655a",
       },
       animation: {
         shimmer: "scroll 5s linear infinite",
