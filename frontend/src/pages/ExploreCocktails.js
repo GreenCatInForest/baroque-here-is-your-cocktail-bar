@@ -20,8 +20,8 @@ export const ExploreCocktails = () => {
   return (
     <div>
       <div className="exploreCreate theme">
-        <article className={`${className}`} onClick={expandPage}>
-          <h2>Explore</h2>
+        <article className={`${className}`}>
+          <h2 onClick={expandPage}>Explore</h2>
           <p>Find YouTube Cocktail Recipe</p>
           <YouTubeForm />
           <p>Find Best Cocktail Bar Near Me</p>
@@ -34,8 +34,8 @@ export const ExploreCocktails = () => {
           />
         </article>
 
-        <article className={`${className}`} onClick={expandPage}>
-          <h2>Create</h2>
+        <article className={`${className}`}>
+          <h2 onClick={expandPage}>Create</h2>
           <button className="bg-rosewood text-white rounded p-2 hover:bg-arizonaStone">
             Add Your Cocktail Recipe
           </button>
