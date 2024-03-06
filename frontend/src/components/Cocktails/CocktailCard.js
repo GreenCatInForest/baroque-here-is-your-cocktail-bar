@@ -3,21 +3,28 @@ import { useState, useEffect } from "react";
 export const CocktailCard = ({ item }) => {
   console.log(item);
 
-  const [isSelected, setIsSelected] = useState(false);
-  const [mySelection, setMySelection] = useState([]);
+  const [newFavorite, setNewFavorite] = useState(null);
 
-  const handleAddToSelection = (event) => {
-    event.preventDefault();
-    setIsSelected(true);
-    setMySelection(localStorage.setItem("item", JSON.stringify(item)));
+  const addFavoriteToLocalStorage = (newFavorite) => {
+    const existingFavorites =
+      JSON.parse(localStorage.getItem("favorites")) || [];
+    existingFavorites.push(newFavorite);
+    localStorage.setItem("favorites", JSON.stringify(existingFavorites));
   };
 
-  // const selectionsFromLS = JSON.parse(localStorage.getItem("selection")) || [];
+  const handleFavourite = () => {
+    const favorite = {
+      key: item.idDrink,
+      data: item,
+    };
+    setNewFavorite(favorite);
+  };
 
-  // useEffect(() => {
-  //   const newSelections = [...selectionsFromLS, selection];
-  //   localStorage.setSelection("selection", JSON.stringify(selection));
-  // }, [selection]);
+  useEffect(() => {
+    if (newFavorite) {
+      addFavoriteToLocalStorage(newFavorite);
+    }
+  }, [newFavorite]);
 
   const alcoholCocktail = item.strAlcoholic;
   const categoryCocktail = item.strCategory;
@@ -62,7 +69,7 @@ export const CocktailCard = ({ item }) => {
           {strMeasure5Cocktail} {strIngredient5Cocktail}
         </li>
       </ul>
-      <button onClick={handleAddToSelection}>Add to favourites</button>
+      <button onClick={handleFavourite}>Add to favourites</button>
       <button>Send to the friend</button>
     </div>
   );
