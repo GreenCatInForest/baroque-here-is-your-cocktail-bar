@@ -16,6 +16,11 @@ Mobile responsive App allows users to search the cocktails and keep the recipes 
 ### CSS
 ### FlowBite
 
+## Added Features
+- Toggle Light and Dark Theme via UseContext Hook
+- Add items to Local Storage and remove from Local Storage
+- Fetch 5 Fetch requests to the API endpoints 
+
 ## Estimations
 - MVP release: 14.03.2024
 
