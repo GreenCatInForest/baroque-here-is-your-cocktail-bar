@@ -4,6 +4,7 @@ export const CocktailCard = ({ item }) => {
   console.log(item);
 
   const [newFavorite, setNewFavorite] = useState(null);
+  const [removeFavorite, setRemoveFavorite] = useState(null);
 
   const addFavoriteToLocalStorage = (newFavorite) => {
     const existingFavorites =
@@ -26,9 +27,28 @@ export const CocktailCard = ({ item }) => {
     }
   }, [newFavorite]);
 
-  const handleRemoveFavourite = () => {
-    console.log("remove from ls");
+  const removeFavoriteFromLocalStorage = (removeFavorite) => {
+    const existingFavorites =
+      JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedFavorites = existingFavorites.filter(
+      (favorite) => favorite.key !== removeFavorite.key
+    );
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
+
+  const handleNoFavourite = () => {
+    const noFavorite = {
+      key: item.idDrink,
+      data: item,
+    };
+    setRemoveFavorite(noFavorite);
+  };
+
+  useEffect(() => {
+    if (removeFavorite) {
+      removeFavoriteFromLocalStorage(removeFavorite);
+    }
+  }, [removeFavorite]);
 
   const alcoholCocktail = item.strAlcoholic;
   const categoryCocktail = item.strCategory;
@@ -75,7 +95,7 @@ export const CocktailCard = ({ item }) => {
       </ul>
       <div className="buttonSelectionMenu">
         <button onClick={handleFavourite}>Add to favourites</button>
-        <button onClick={handleRemoveFavourite}>Remove</button>
+        <button onClick={handleNoFavourite}>Remove</button>
         <button>Send to the friend</button>
       </div>
     </div>
