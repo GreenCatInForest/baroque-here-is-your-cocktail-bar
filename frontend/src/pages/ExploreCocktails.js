@@ -13,9 +13,7 @@ export const ExploreCocktails = () => {
   const expandPage = () => setExpand(!expand);
 
   useEffect(() => {
-    expand
-      ? setClassName("md:col-span-2 md:p-24")
-      : setClassName("md:col-span-1 md:p-0");
+    expand ? setClassName("md:col-span-2") : setClassName("md:col-span-1");
   }, [expand]);
 
   return (
@@ -34,13 +32,14 @@ export const ExploreCocktails = () => {
           />
         </article>
 
-        <article className={`${className} bg-desertSand`} onClick={expandPage}>
+        <article className={`${className}`} onClick={expandPage}>
           <h2>Create</h2>
-          <button className="bg-rosewood text-white rounded h-1/2">
+          <button className="bg-rosewood text-white rounded p-2 hover:bg-arizonaStone">
             Add Your Cocktail Recipe
           </button>
           <p>I have ingredient. What to add?</p>
           <p>Register to Alchemy Laboratory</p>
+          <button className="bg-rosewood text-white rounded p-2 hover:bg-arizonaStone"></button>
         </article>
       </div>
 

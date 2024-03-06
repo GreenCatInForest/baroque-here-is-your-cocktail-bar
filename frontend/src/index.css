@@ -219,6 +219,7 @@ code {
 
   .exploreCreate {
     @apply grid grid-flow-row-dense 
+    my-8
     w-full
     grid-cols-1
     md:grid-cols-2 
@@ -227,7 +228,8 @@ code {
 
   .exploreCreate h2 {
     @apply font-josefinSansUni 
-    w-1/2 
+    md:w-1/2 
+    mb-3
     font-bold 
     text-3xl 
     md:text-4xl 
