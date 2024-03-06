@@ -219,7 +219,7 @@ code {
 
   .exploreCreate {
     @apply grid grid-flow-row-dense 
-    my-8
+    py-8
     w-full
     grid-cols-1
     md:grid-cols-2 
