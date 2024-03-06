@@ -11,9 +11,10 @@ export const YouTubeForm = () => {
   };
 
   const handleChange = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
+    setQueryYouTube(event.target.value);
   };
+
+  console.log(queryYouTube);
 
   return (
     <div>
