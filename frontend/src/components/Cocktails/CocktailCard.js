@@ -26,6 +26,10 @@ export const CocktailCard = ({ item }) => {
     }
   }, [newFavorite]);
 
+  const handleRemoveFavourite = () => {
+    console.log("remove from ls");
+  };
+
   const alcoholCocktail = item.strAlcoholic;
   const categoryCocktail = item.strCategory;
   const nameCocktail = item.strDrink;
@@ -69,8 +73,11 @@ export const CocktailCard = ({ item }) => {
           {strMeasure5Cocktail} {strIngredient5Cocktail}
         </li>
       </ul>
-      <button onClick={handleFavourite}>Add to favourites</button>
-      <button>Send to the friend</button>
+      <div className="buttonSelectionMenu">
+        <button onClick={handleFavourite}>Add to favourites</button>
+        <button onClick={handleRemoveFavourite}>Remove</button>
+        <button>Send to the friend</button>
+      </div>
     </div>
   );
 };
