@@ -4,6 +4,9 @@ import axios from "axios";
 export const YouTubeForm = () => {
   const [dataYouTube, setDataYouTube] = useState([]);
   const [queryYouTube, setQueryYouTube] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const apiKey = process.env.YOUTUBE_API_KEY;
 
   const handleSubmit = (event) => {
     event.preventDefault();
