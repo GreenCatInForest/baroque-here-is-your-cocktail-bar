@@ -22,6 +22,7 @@ export const YouTubeForm = () => {
   console.log(queryYouTube);
 
   const fetchCocktailsYouTube = async (queryYouTube) => {
+    setIsLoading(true);
     try {
       setIsLoading(true);
       const response = await axios.get(
@@ -53,6 +54,13 @@ export const YouTubeForm = () => {
         />
         <button type="submit">Search</button>
       </form>
+      {isLoading && <h2>Loading...</h2>}
+      {error && (
+        <h2>
+          It seems something went wrong. Try again with another query please{" "}
+          {error}
+        </h2>
+      )}
     </div>
   );
 };
