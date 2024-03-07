@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useThemeContext } from "../contexts/themeContext";
 
 import YouTubeLogoDark from "../assets/images/yt_logo_rgb_dark.png";
 import YouTubeLogoLight from "../assets/images/yt_logo_rgb_light.png";
 
 export const YouTubeForm = () => {
+  const { isDarkTheme } = useThemeContext();
   const [dataYouTube, setDataYouTube] = useState([]);
   const [queryYouTube, setQueryYouTube] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,9 +49,9 @@ export const YouTubeForm = () => {
   console.log(dataYouTube);
 
   return (
-    <div>
+    <div className="theme">
       <img
-        src={YouTubeLogoLight}
+        src={isDarkTheme ? YouTubeLogoDark : YouTubeLogoLight}
         alt="YouTube Logo"
         className="w-1/2 md:w-1/6"
       />
