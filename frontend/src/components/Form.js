@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-export const Form = ({ query, setQuery, setQuerySubmitted }) => {
+export const Form = ({
+  query,
+  setQuery,
+  setQuerySubmitted,
+  templateExplore,
+}) => {
   const [checked, setChecked] = useState(false);
   const [selected, setSelected] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
@@ -47,7 +52,12 @@ export const Form = ({ query, setQuery, setQuerySubmitted }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="formCocktailSearch">
+      <form
+        onSubmit={handleSubmit}
+        className={
+          templateExplore === "" ? "formCocktailSearch" : templateExplore // apply different styles to form
+        }
+      >
         <input
           type="text"
           name="nameQuery"

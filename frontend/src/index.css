@@ -156,18 +156,26 @@ code {
     flex-col 
     items-center 
     justify-center 
+    md:place-items-start
+    md:justify-items-start
     gap-2
     md:gap-3 
-    p-4;
+    p-4
+    md:p-0;
   }
 
   .youtubeForm form {
-    @apply flex flex-col 
+    @apply w-2/3
+    md:w-full
+    flex flex-col 
     items-center 
     justify-center
+    md:place-items-start
+    md:justify-items-start
     gap-2 
     md:gap-3
-    p-4;
+    p-4
+    md:p-0;
   }
 
   /* Cocktail Container */
@@ -231,21 +239,21 @@ code {
     gap-3;
   }
 
-  /* Explore Create Page */
+  /* Explore Page */
 
-  .exploreCreate {
+  .explore {
     @apply grid grid-flow-row-dense 
     py-8
     w-full
     mx-4
     grid-cols-1
-    md:grid-cols-3 
-    justify-center text-center;
+    md:grid-cols-1 
+    text-center
+    md:text-left;
   }
 
-  .exploreCreate h2 {
+  .explore h2 {
     @apply font-josefinSansUni 
-    /* md:w-1/2  */
     mb-3
     font-bold 
     text-3xl 

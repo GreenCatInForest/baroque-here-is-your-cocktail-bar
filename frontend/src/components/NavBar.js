@@ -37,12 +37,12 @@ export const NavBar = () => {
           </li>
           <li>
             <a href="/explore-cocktails" aria-current="true">
-              Explore. Create. Enjoy.
+              Explore
             </a>
           </li>
           {/* <li>
             <a href="/" aria-current="true">
-              Create
+              Create. Enjoy.
             </a>
           </li> */}
           <li>

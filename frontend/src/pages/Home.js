@@ -16,6 +16,7 @@ export const Home = () => {
         setQuery={setQuery}
         setQuerySubmitted={setQuerySubmitted}
         querySubmitted={querySubmitted}
+        templateExplore="" // empty string to remove formStyleExplore class
       />
       <CocktailsContainer
         query={query}
