@@ -24,7 +24,7 @@ code {
   body {
     @apply min-h-screen;
   }
-
+  /* 
   .lightTheme {
     @apply bg-white
     text-gray-900;
@@ -33,17 +33,12 @@ code {
   .darkTheme {
     @apply bg-gray-900
     text-white;
-  }
+  } */
 }
 
 /* Component Styles */
 
 @layer components {
-  .lightTheme {
-    @apply bg-white
-    text-gray-900;
-  }
-
   .darkTheme {
     @apply bg-gray-900
     text-white;
@@ -154,6 +149,27 @@ code {
     p-4;
   }
 
+  /* Youtube Form */
+
+  .youtubeForm {
+    @apply flex 
+    flex-col 
+    items-center 
+    justify-center 
+    gap-2
+    md:gap-3 
+    p-4;
+  }
+
+  .youtubeForm form {
+    @apply flex flex-col 
+    items-center 
+    justify-center
+    gap-2 
+    md:gap-3
+    p-4;
+  }
+
   /* Cocktail Container */
 
   .cocktailsContainer {
@@ -221,14 +237,15 @@ code {
     @apply grid grid-flow-row-dense 
     py-8
     w-full
+    mx-4
     grid-cols-1
-    md:grid-cols-2 
+    md:grid-cols-3 
     justify-center text-center;
   }
 
   .exploreCreate h2 {
     @apply font-josefinSansUni 
-    md:w-1/2 
+    /* md:w-1/2  */
     mb-3
     font-bold 
     text-3xl 
