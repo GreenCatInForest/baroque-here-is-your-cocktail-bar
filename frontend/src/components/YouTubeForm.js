@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import YouTubeLogoDark from "../assets/images/yt_logo_rgb_dark.png";
+import YouTubeLogoLight from "../assets/images/yt_logo_rgb_light.png";
+
 export const YouTubeForm = () => {
   const [dataYouTube, setDataYouTube] = useState([]);
   const [queryYouTube, setQueryYouTube] = useState("");
@@ -45,13 +48,25 @@ export const YouTubeForm = () => {
 
   return (
     <div>
-      <h1>YouTube Form</h1>
+      <img
+        src={YouTubeLogoLight}
+        alt="YouTube Logo"
+        className="w-1/2 md:w-1/6"
+      />
+      {/* <h1>Find Cocktail Video Recipe and Tutorial</h1> */}
       <form onSubmit={handleSubmit}>
         <input
+          id="youtubeQuery"
           type="text"
-          placeholder="Search YouTube"
+          placeholder="Find cocktail video recipes and tutorials"
           onChange={handleChange}
         />
+        {/* <input
+          id="youtubeNumber"
+          type="number"
+          placeholder="How many videos?"
+          onChange={handleChange}
+        /> */}
         <button type="submit">Search</button>
       </form>
       {isLoading && <h2>Loading...</h2>}

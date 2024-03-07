@@ -22,7 +22,6 @@ export const ExploreCocktails = () => {
       <div className="exploreCreate theme">
         <article className={`${className}`}>
           <h2 onClick={expandPage}>Explore</h2>
-          <p>Find YouTube Cocktail Recipe</p>
           <YouTubeForm />
           <p>Find Best Cocktail Bar Near Me</p>
           <p>Find Cocktail Recipes</p>
