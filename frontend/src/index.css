@@ -200,6 +200,11 @@ code {
     md:p-0;
   }
 
+  .youtubeForm form input {
+    @apply w-2/3
+    md:w-full;
+  }
+
   /* Cocktail Container */
 
   .cocktailsContainer {
@@ -298,7 +303,6 @@ code {
   .exploreSearchContainer {
     @apply grid grid-flow-row-dense 
     py-8
-    w-full
     mx-auto
     w-11/12
     grid-cols-1
@@ -326,6 +330,10 @@ code {
     gap-4 
     md:gap-5 
     text-center;
+  }
+  .exploreSearchContainer input,
+  .exploreSearchContainer select {
+    @apply rounded-md;
   }
 
   /* Your Cocktail Selection in Local Storage */
