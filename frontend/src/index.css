@@ -41,7 +41,12 @@ code {
 @layer components {
   .darkTheme {
     @apply bg-gray-900
-    text-white;
+    text-white
+    font-ubuntu;
+  }
+
+  .lightTheme {
+    @apply font-ubuntu;
   }
 
   /* Navbar  */
@@ -193,6 +198,33 @@ code {
 
   .youtubeForm form input {
     @apply w-full;
+  }
+
+  /* Search Buttons */
+  .searchButton {
+    @apply /* bg-desertSand  */
+   bg-red-600 
+   text-white 
+    /* border
+    border-spacing-1
+    border-rosewood */
+    py-2 
+    px-4 
+    rounded 
+    hover:shadow-lg 
+    transition 
+    duration-300 
+    ease-in-out
+    shadow-gray-900
+    shadow-sm;
+
+    &:hover {
+      @apply /* bg-gradient-to-r 
+      from-desertSand
+      to-white */
+      shadow-gray-900
+      shadow-md;
+    }
   }
 
   /* Cocktail Container */
