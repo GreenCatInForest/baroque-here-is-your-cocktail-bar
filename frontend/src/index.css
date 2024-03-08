@@ -239,6 +239,34 @@ code {
     gap-3;
   }
 
+  /* Home Page */
+
+  .homeFormSection {
+    @apply max-w-screen-xl 
+    grid 
+    grid-flow-row-dense
+    grid-cols-1
+    md:grid-cols-3
+    mx-auto 
+    p-4
+    justify-center
+    text-center
+    /* flex-wrap 
+    flex-col  */
+    /* items-center 
+    justify-between 
+    text-center mx-auto p-4 */
+    /* md:flex-row */
+    /* md:justify-around; */;
+  }
+
+  .homeFormSection > * {
+    @apply justify-center
+    mx-auto
+    gap-3
+    items-center;
+  }
+
   /* Explore Page */
 
   .explore {
@@ -247,7 +275,7 @@ code {
     w-full
     mx-4
     grid-cols-1
-    md:grid-cols-1 
+    md:grid-cols-4 
     text-center
     md:text-left;
   }
@@ -260,7 +288,8 @@ code {
     md:text-4xl 
     justify-center 
     text-center 
-    items-center;
+    items-center
+    md:text-left;
   }
 
   /* Your Cocktail Selection in Local Storage */
