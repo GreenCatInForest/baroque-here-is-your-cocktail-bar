@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-
-import { useFormContext } from "../../contexts/formContext";
 import { CocktailCard } from "./CocktailCard";
 
 export const CocktailsContainer = ({
@@ -14,8 +12,6 @@ export const CocktailsContainer = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const apiKey = process.env.XRapidAPIKey;
-  const { isIngredients, setIsIngredients } = useFormContext();
-
   console.log(querySubmitted);
 
   const fetchCocktails = useCallback(
@@ -69,7 +65,6 @@ export const CocktailsContainer = ({
         return (
           item !== undefined && item !== null && item !== ""
           // check if the recipe is available. If not, it'll not be displayed
-          // it can be solved, but on the next stage after MVP
           // && item.hasOwnProperty("strDrinkThumb")
           //  && item.hasOwnProperty("strIngredient1")
           //     "strIngredient2" ||
@@ -81,9 +76,11 @@ export const CocktailsContainer = ({
       }))
     : (filteredArray = []);
 
-  console.log(filteredArray);
-
   // additional request if needed to get the recipe
+
+  const handleAdditionalSearch = () => {
+    console.log("Additional search");
+  };
   // let additionalRequestData = [];
 
   // Array.isArray(filteredArray) &&
@@ -128,10 +125,11 @@ export const CocktailsContainer = ({
       {!filteredArray ? (
         <h2>You have no cocktails yet, let's find something for you!</h2>
       ) : (
-        // here the check if the data is complete and generate additional request button
         <div className="cocktailsMiniContainer">
+          {/* if the data is not complete generate additional request button */}
+
           {filteredArray.map((item) => (
-            <CocktailCard key={item + Math.random()} item={item} />
+            <CocktailCard key={item.idDrink} item={item} />
           ))}
         </div>
       )}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormContext } from "../../contexts/formContext";
 
-export const CocktailCard = ({ item }) => {
+export const CocktailCard = ({ item, isIngredient }) => {
   console.log(item);
 
   const [newFavorite, setNewFavorite] = useState(null);
@@ -96,13 +96,9 @@ export const CocktailCard = ({ item }) => {
         </li>
       </ul>
       <div className="buttonSelectionMenu">
-        {/* {!isIngredients ? (
-          <button className="searchButton" onClick={handleNoFavourite}>
-            Try to find anyway
-          </button>
-        ) : (
-          ""
-        )} */}
+        {item.strIngredient1 === "" || !item.strIngredient1 ? (
+          <button className="searchButton">Try to find anyway</button>
+        ) : null}
         <button className="searchButtonYoutube" onClick={handleFavourite}>
           Add to favourites
         </button>
