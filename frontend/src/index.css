@@ -149,14 +149,12 @@ code {
     p-4;
   }
 
-  .formCocktailSearch input {
+  .formCocktailSearch input,
+  .formCocktailSearch select {
     @apply w-full
-    /* md:w-full */
-    /* p-2
+    md:w-auto
     text-center
-    border-2 
-    rounded-md
-    border-neutral-500; */;
+    rounded-md;
   }
 
   .formCocktailSearchWrapperAlcohol {
@@ -166,8 +164,11 @@ code {
     items-center 
     justify-center 
     gap-4 
-    md:gap-5 
-    p-4;
+    md:gap-5;
+  }
+
+  .formCocktailSearchWrapperAlcohol input {
+    @apply w-4;
   }
 
   /* Youtube Form */
@@ -286,8 +287,6 @@ code {
 
   .homeFormSection > * {
     @apply justify-center
- 
-    gap-3
     items-center;
   }
 

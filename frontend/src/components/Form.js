@@ -81,7 +81,7 @@ export const Form = ({
           value={selectedOption}
           onChange={handleSelect}
         >
-          <option value="">Choose your type of cocktail</option>
+          <option value="">Choose your drink type</option>
           <option value="Ordinary Drink">Ordinary Drink</option>
           <option value="Cocktail">Cocktail</option>
           <option value="Milk / Float / Shake">Milk / Float / Shake</option>
