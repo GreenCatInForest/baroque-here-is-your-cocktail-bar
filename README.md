@@ -33,9 +33,17 @@ Mobile responsive App allows users to search the cocktails and keep the recipes 
 
 ## Added Features
 
+5.03.2024
 - Toggle Light and Dark Theme via UseContext Hook
 - Add items to Local Storage and remove from Local Storage
-- Fetch 5 Fetch requests to the API endpoints
+- Fetch 5 Fetch requests to the API endpoints for Cocktail DB API
+- all general app props passed through UseContext 
+
+8.03.2024
+- Fetch updated Fetch request from the YouTube API
+- Light and dark theme toggle different images on templates
+- Different template renders different styles of forms 
+- Conditional rendering buttons dependently of data
 
 ## Estimations
 
