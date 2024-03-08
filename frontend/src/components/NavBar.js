@@ -55,9 +55,9 @@ export const NavBar = () => {
               Cabine Crew
             </a>
           </li>
-          <li>
+          {/* <li>
             <button>Menu Collapse</button>
-          </li>
+          </li> */}
           {/* <li>
             <a href="/" aria-current="true">
               Login/Join
