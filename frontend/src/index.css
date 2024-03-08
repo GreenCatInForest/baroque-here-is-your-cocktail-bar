@@ -356,6 +356,13 @@ code {
     md:text-left;
   }
 
+  .exploreSearchContainer article {
+    @apply grid
+    grid-flow-row-dense
+    grid-cols-1
+    gap-y-8;
+  }
+
   .exploreSearchContainer h2 {
     @apply font-josefinSansUni 
     mb-3
