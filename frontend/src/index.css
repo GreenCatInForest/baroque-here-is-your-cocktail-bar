@@ -306,7 +306,8 @@ code {
 
   .buttonSelectionMenu {
     @apply flex 
-    flex-row 
+    flex-row
+    flex-wrap 
     justify-center
     gap-3;
   }
