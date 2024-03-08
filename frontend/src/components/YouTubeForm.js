@@ -11,8 +11,8 @@ export const YouTubeForm = () => {
   const [queryYouTube, setQueryYouTube] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const apiKey = process.env.REACT_APP_XRapidAPIYOUTUBE_API_KEY;
-  console.log(apiKey);
+  const apiKey = "abc";
+  // process.env.REACT_APP_XRapidAPIYOUTUBE_API_KEY;
 
   const handleSubmit = (event) => {
     event.preventDefault();

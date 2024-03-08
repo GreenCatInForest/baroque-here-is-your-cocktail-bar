@@ -174,35 +174,25 @@ code {
   /* Youtube Form */
 
   .youtubeForm {
-    @apply flex 
-    flex-col 
-    items-center 
-    justify-center 
-    md:place-items-start
+    @apply grid 
+    grid-flow-row-dense 
+    grid-cols-1 
+    justify-items-center
     md:justify-items-start
-    gap-2
-    md:gap-3 
-    p-4
-    md:p-0;
+    gap-4 
+    md:gap-5 
+    text-center;
   }
 
   .youtubeForm form {
-    @apply w-2/3
-    md:w-full
-    flex flex-col 
-    items-center 
-    justify-center
-    md:place-items-start
-    md:justify-items-start
-    gap-2 
-    md:gap-3
-    p-4
-    md:p-0;
+    @apply grid
+    gap-4 
+    md:gap-5 
+    w-full;
   }
 
   .youtubeForm form input {
-    @apply w-2/3
-    md:w-full;
+    @apply w-full;
   }
 
   /* Cocktail Container */
