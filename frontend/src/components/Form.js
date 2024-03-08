@@ -91,22 +91,24 @@ export const Form = ({
           <option value="Coffee / Tea">Coffee / Tea</option>
           <option value="Homemade Liqueur">Homemade Liqueur</option>
         </select>
-        <label htmlFor="Alcoholic">Alcohol</label>
-        <input
-          type="checkbox"
-          id="Alcoholic"
-          name="Alcoholic"
-          value="Alcoholic"
-          onChange={handleCheck}
-        />
-        <label htmlFor="Non_Alcoholic">Non Alcohol</label>
-        <input
-          type="checkbox"
-          id="Non_Alcoholic"
-          name="Non_Alcoholic"
-          value="Non_Alcoholic"
-          onChange={handleCheck}
-        />
+        <div className="formCocktailSearchWrapperAlcohol">
+          <label htmlFor="Alcoholic">Alcohol</label>
+          <input
+            type="checkbox"
+            id="Alcoholic"
+            name="Alcoholic"
+            value="Alcoholic"
+            onChange={handleCheck}
+          />
+          <label htmlFor="Non_Alcoholic">Non Alcohol</label>
+          <input
+            type="checkbox"
+            id="Non_Alcoholic"
+            name="Non_Alcoholic"
+            value="Non_Alcoholic"
+            onChange={handleCheck}
+          />
+        </div>
         <button type="submit">Search</button>
       </form>
     </>

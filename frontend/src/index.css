@@ -149,6 +149,27 @@ code {
     p-4;
   }
 
+  .formCocktailSearch input {
+    @apply w-full
+    /* md:w-full */
+    /* p-2
+    text-center
+    border-2 
+    rounded-md
+    border-neutral-500; */;
+  }
+
+  .formCocktailSearchWrapperAlcohol {
+    @apply flex 
+    flex-col 
+    md:flex-row
+    items-center 
+    justify-center 
+    gap-4 
+    md:gap-5 
+    p-4;
+  }
+
   /* Youtube Form */
 
   .youtubeForm {
