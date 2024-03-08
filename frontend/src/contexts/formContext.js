@@ -17,6 +17,10 @@ export const FormProvider = ({ children }) => {
 
   const [data, setData] = useState("");
 
+  //  state for additional request to API
+
+  const [isIngredients, setIsIngredients] = useState(false);
+
   useEffect(() => {
     console.log(querySubmitted, query, data);
   }, [querySubmitted, query, data]);
@@ -30,6 +34,8 @@ export const FormProvider = ({ children }) => {
         setQuery,
         data,
         setData,
+        isIngredients,
+        setIsIngredients,
       }}
     >
       {children}

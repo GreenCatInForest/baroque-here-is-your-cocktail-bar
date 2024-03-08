@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
+import { useFormContext } from "../../contexts/formContext";
 import { CocktailCard } from "./CocktailCard";
 
 export const CocktailsContainer = ({
@@ -13,6 +14,7 @@ export const CocktailsContainer = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const apiKey = process.env.XRapidAPIKey;
+  const { isIngredients, setIsIngredients } = useFormContext();
 
   console.log(querySubmitted);
 
@@ -79,6 +81,8 @@ export const CocktailsContainer = ({
       }))
     : (filteredArray = []);
 
+  console.log(filteredArray);
+
   // additional request if needed to get the recipe
   // let additionalRequestData = [];
 
@@ -124,6 +128,7 @@ export const CocktailsContainer = ({
       {!filteredArray ? (
         <h2>You have no cocktails yet, let's find something for you!</h2>
       ) : (
+        // here the check if the data is complete and generate additional request button
         <div className="cocktailsMiniContainer">
           {filteredArray.map((item) => (
             <CocktailCard key={item + Math.random()} item={item} />

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useFormContext } from "../../contexts/formContext";
 
 export const CocktailCard = ({ item }) => {
   console.log(item);
 
   const [newFavorite, setNewFavorite] = useState(null);
   const [removeFavorite, setRemoveFavorite] = useState(null);
+  const { isIngredients, setIsIngredients } = useFormContext();
 
   const addFavoriteToLocalStorage = (newFavorite) => {
     const existingFavorites =
@@ -94,6 +96,13 @@ export const CocktailCard = ({ item }) => {
         </li>
       </ul>
       <div className="buttonSelectionMenu">
+        {/* {!isIngredients ? (
+          <button className="searchButton" onClick={handleNoFavourite}>
+            Try to find anyway
+          </button>
+        ) : (
+          ""
+        )} */}
         <button className="searchButtonYoutube" onClick={handleFavourite}>
           Add to favourites
         </button>
