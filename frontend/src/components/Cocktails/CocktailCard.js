@@ -94,9 +94,13 @@ export const CocktailCard = ({ item }) => {
         </li>
       </ul>
       <div className="buttonSelectionMenu">
-        <button onClick={handleFavourite}>Add to favourites</button>
-        <button onClick={handleNoFavourite}>Remove</button>
-        <button>Send to the friend</button>
+        <button className="searchButtonYoutube" onClick={handleFavourite}>
+          Add to favourites
+        </button>
+        <button className="searchButton" onClick={handleNoFavourite}>
+          Remove
+        </button>
+        <button className="searchButton">Share</button>
       </div>
     </div>
   );

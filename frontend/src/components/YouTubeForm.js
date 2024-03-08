@@ -69,7 +69,7 @@ export const YouTubeForm = () => {
           placeholder="How many videos?"
           onChange={handleChange}
         /> */}
-        <button className="searchButton" type="submit">
+        <button className="searchButtonYoutube" type="submit">
           Search
         </button>
       </form>

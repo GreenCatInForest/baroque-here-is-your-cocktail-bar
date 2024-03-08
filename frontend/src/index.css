@@ -201,7 +201,30 @@ code {
   }
 
   /* Search Buttons */
+
   .searchButton {
+    @apply border
+    border-gray-900
+    border-spacing-1
+    py-2 
+    px-4 
+    rounded 
+    hover:shadow-lg 
+    transition 
+    duration-300 
+    ease-in-out
+    shadow-gray-900
+    shadow-sm;
+
+    &:hover {
+      @apply shadow-black
+      shadow-md
+      scale-110
+      md:scale-100;
+    }
+  }
+
+  .searchButtonYoutube {
     @apply /* bg-desertSand  */
    bg-red-600 
    text-white 
