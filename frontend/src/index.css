@@ -274,15 +274,7 @@ code {
     mx-auto 
     p-4
     justify-center
-    text-center
-
-    /* flex-wrap 
-    flex-col  */
-    /* items-center 
-    justify-between 
-    text-center mx-auto p-4 */
-    /* md:flex-row */
-    /* md:justify-around; */;
+    text-center;
   }
 
   .homeFormSection > * {
@@ -303,18 +295,19 @@ code {
   }
   /* Explore Page */
 
-  .explore {
+  .exploreSearchContainer {
     @apply grid grid-flow-row-dense 
     py-8
     w-full
-    mx-4
+    mx-auto
+    w-11/12
     grid-cols-1
-    md:grid-cols-4 
+    /* md:grid-cols-3  */
     text-center
     md:text-left;
   }
 
-  .explore h2 {
+  .exploreSearchContainer h2 {
     @apply font-josefinSansUni 
     mb-3
     font-bold 
@@ -324,6 +317,15 @@ code {
     text-center 
     items-center
     md:text-left;
+  }
+
+  .templateExplore {
+    @apply grid 
+    grid-flow-row-dense 
+    grid-cols-1 
+    gap-4 
+    md:gap-5 
+    text-center;
   }
 
   /* Your Cocktail Selection in Local Storage */

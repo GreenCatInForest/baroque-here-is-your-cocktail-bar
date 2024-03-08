@@ -10,17 +10,17 @@ export const ExploreCocktails = () => {
 
   return (
     <div className="theme">
-      <div className="explore">
+      <div className="exploreSearchContainer">
         <article>
           <h2>Explore</h2>
           <YouTubeForm />
-          <p>Find Cocktail Recipes</p>
+          <h2>Find Cocktail Recipes</h2>
           <Form
             query={query}
             setQuery={setQuery}
             setQuerySubmitted={setQuerySubmitted}
             querySubmitted={querySubmitted}
-            templateExplore="formStyleExplore" // apply template style to form
+            templateExplore="templateExplore" // pass template style to form
           />
         </article>
       </div>
