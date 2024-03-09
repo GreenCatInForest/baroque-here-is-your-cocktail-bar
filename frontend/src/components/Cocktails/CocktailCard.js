@@ -6,7 +6,8 @@ export const CocktailCard = ({ item, isIngredient }) => {
 
   const [newFavorite, setNewFavorite] = useState(null);
   const [removeFavorite, setRemoveFavorite] = useState(null);
-  const { isIngredients, setIsIngredients } = useFormContext();
+  const { dataYouTube, setDataYouTube } = useFormContext();
+  console.log(dataYouTube);
 
   const addFavoriteToLocalStorage = (newFavorite) => {
     const existingFavorites =
@@ -52,6 +53,8 @@ export const CocktailCard = ({ item, isIngredient }) => {
     }
   }, [removeFavorite]);
 
+  // Data for main search from cocktail DataBase API
+
   const alcoholCocktail = item.strAlcoholic;
   const categoryCocktail = item.strCategory;
   const nameCocktail = item.strDrink;
@@ -68,6 +71,8 @@ export const CocktailCard = ({ item, isIngredient }) => {
   const strMeasure3Cocktail = item.strMeasure3;
   const strMeasure4Cocktail = item.strMeasure4;
   const strMeasure5Cocktail = item.strMeasure5;
+
+  // data for Youtube search from YouTube API
 
   return (
     <div>

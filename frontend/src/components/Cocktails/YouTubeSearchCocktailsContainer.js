@@ -1,3 +1,5 @@
+import { CocktailCard } from "./CocktailCard";
+
 export const YouTubeSearchCocktailsContainer = ({
   dataYouTube,
   setDataYouTube,
@@ -5,6 +7,8 @@ export const YouTubeSearchCocktailsContainer = ({
   setQueryYouTube,
 }) => {
   dataYouTube ? console.log(dataYouTube) : console.log("no data");
+
+  let youtubeVideo = dataYouTube[0];
 
   return (
     <div>
@@ -25,6 +29,11 @@ export const YouTubeSearchCocktailsContainer = ({
           </div>
         ))}
       </div>
+      {dataYouTube.map((youTubeVideo) => (
+        <div key={youTubeVideo.id.videoId}>
+          <CocktailCard item={youTubeVideo} />
+        </div>
+      ))}
     </div>
   );
 };
