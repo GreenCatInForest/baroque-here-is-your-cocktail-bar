@@ -35,10 +35,12 @@ export const YouTubeForm = ({
     try {
       setIsLoading(true);
       const response = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25`,
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5`,
         {
           params: {
             q: `${queryYouTube} cocktail recipe`,
+            type: "video",
+            videoSyndicated: true,
             key: apiKey,
           },
         }

@@ -20,8 +20,6 @@ export const ExploreCocktails = () => {
     setQueryYouTube,
   } = useFormContext();
 
-  console.log(setQueryYouTube);
-
   return (
     <div className="theme">
       <div className="exploreSearchContainer">
@@ -34,12 +32,14 @@ export const ExploreCocktails = () => {
             setQueryYouTube={setQueryYouTube}
           />
 
-          <YouTubeSearchCocktailsContainer
-            dataYouTube={dataYouTube}
-            setDataYouTube={setDataYouTube}
-            queryYouTube={queryYouTube}
-            setQueryYouTube={setQueryYouTube}
-          />
+          {dataYouTube.length > 1 && (
+            <YouTubeSearchCocktailsContainer
+              dataYouTube={dataYouTube}
+              setDataYouTube={setDataYouTube}
+              queryYouTube={queryYouTube}
+              setQueryYouTube={setQueryYouTube}
+            />
+          )}
 
           <h2>Find Cocktail Recipes</h2>
           <Form
