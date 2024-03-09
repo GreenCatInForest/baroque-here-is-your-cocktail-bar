@@ -312,6 +312,43 @@ code {
     gap-3;
   }
 
+  /* cocktailsContainerYoutube */
+
+  .cocktailsContainerYoutube {
+    @apply max-w-screen-xl 
+    grid 
+    grid-flow-row-dense
+    gap-8
+    text-center
+    align-middle
+    items-center
+    mx-auto 
+    p-4;
+  }
+
+  .cocktailsContainerYoutube > * {
+    @apply max-w-screen-xl 
+    grid 
+    grid-flow-row-dense
+    gap-y-1;
+  }
+
+  .cocktailsContainerYoutube .youtubeVideo {
+    @apply w-full
+    my-6;
+  }
+
+  /* youTube cocktail card */
+
+  .youtubeVideo {
+    @apply w-full;
+  }
+
+  .youtubeVideo > * {
+    @apply w-full
+    grid-cols-1;
+  }
+
   /* Home Page */
 
   .homeFormSection {

@@ -74,11 +74,28 @@ export const CocktailCard = ({ item, isIngredient }) => {
 
   // data for Youtube search from YouTube API
 
+  const description = item.snippet.description;
+  const nameYouTubeCocktail = item.snippet.title;
+  const channelYouTube = item.snippet.channelTitle;
+  const videoYouTube = (
+    <iframe
+      className="youtubeVideo"
+      // width="560"
+      // height="315"
+      src={`https://www.youtube.com/embed/${item.id.videoId}`}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title={item.snippet.title}
+    ></iframe>
+  );
+
   return (
     <div>
-      <h1>{nameCocktail}</h1>
+      {nameCocktail && <h1>{nameCocktail}</h1>}
+      {nameYouTubeCocktail && <h1>{nameYouTubeCocktail}</h1>}
       <img src={thumbnailCocktail} alt={nameCocktail} />
       <h3>{categoryCocktail}</h3>
+      {description && <h3>{description}</h3>}
       <h3>{alcoholCocktail}</h3>
       <h3>{glassCocktail}</h3>
       <p>{instructionsCocktail}</p>
@@ -100,9 +117,11 @@ export const CocktailCard = ({ item, isIngredient }) => {
           {strMeasure5Cocktail} {strIngredient5Cocktail}
         </li>
       </ul>
+      {channelYouTube && <h3>channel on YouTube: {channelYouTube}</h3>}
+      {videoYouTube && videoYouTube}
       <div className="buttonSelectionMenu">
         {item.strIngredient1 === "" || !item.strIngredient1 ? (
-          <button className="searchButton">Try to find anyway</button>
+          <button className="searchButton">Try to find more</button>
         ) : null}
         <button className="searchButtonYoutube" onClick={handleFavourite}>
           Add to favourites
