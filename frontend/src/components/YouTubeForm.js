@@ -5,13 +5,18 @@ import { useThemeContext } from "../contexts/themeContext";
 import YouTubeLogoDark from "../assets/images/yt_logo_rgb_dark.png";
 import YouTubeLogoLight from "../assets/images/yt_logo_rgb_light.png";
 
-export const YouTubeForm = () => {
+export const YouTubeForm = ({
+  dataYouTube,
+  setDataYouTube,
+  queryYouTube,
+  setQueryYouTube,
+}) => {
   const { isDarkTheme } = useThemeContext();
-  const [dataYouTube, setDataYouTube] = useState([]);
-  const [queryYouTube, setQueryYouTube] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const apiKey = process.env.REACT_APP_XRapidAPIYOUTUBE_API_KEY;
+
+  console.log(setQueryYouTube);
 
   const handleSubmit = (event) => {
     event.preventDefault();

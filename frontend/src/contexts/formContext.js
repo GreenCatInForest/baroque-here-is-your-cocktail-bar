@@ -4,6 +4,7 @@ const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
   // state for search queries
+
   const [querySubmitted, setQuerySubmitted] = useState("");
 
   const [query, setQuery] = useState({
@@ -12,6 +13,11 @@ export const FormProvider = ({ children }) => {
     categoryQuery: undefined,
     alcoholQuery: undefined,
   });
+
+  // state for YouTube search queries
+
+  const [dataYouTube, setDataYouTube] = useState([]);
+  const [queryYouTube, setQueryYouTube] = useState("");
 
   //  state for data from API
 
@@ -36,6 +42,10 @@ export const FormProvider = ({ children }) => {
         setData,
         isIngredients,
         setIsIngredients,
+        dataYouTube,
+        setDataYouTube,
+        queryYouTube,
+        setQueryYouTube,
       }}
     >
       {children}
