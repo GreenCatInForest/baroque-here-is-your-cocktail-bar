@@ -35,8 +35,8 @@ export const NavBar = () => {
               className="toggleDarkThemeDrink"
             />
           </li>
-          <li>
-            <a href="/explore-cocktails" aria-current="true">
+          <li className="relative">
+            <a href="/explore-cocktails" aria-current="true" >
               Explore
             </a>
           </li>

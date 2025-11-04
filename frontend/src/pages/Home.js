@@ -53,6 +53,7 @@ export const Home = () => {
           className={`homeImageRight ${!isDarkTheme}`}
         />
       </div>
+      {querySubmitted && (
       <CocktailsContainer
         query={query}
         setQuery={setQuery}
@@ -61,6 +62,7 @@ export const Home = () => {
         querySubmitted={querySubmitted}
         setQuerySubmitted={setQuerySubmitted}
       />
+    )}
     </div>
   );
 };

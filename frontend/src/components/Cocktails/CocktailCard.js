@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useFormContext } from "../../contexts/formContext";
 
 export const CocktailCard = ({ item }) => {
   const [newFavorite, setNewFavorite] = useState(null);
   const [removeFavorite, setRemoveFavorite] = useState(null);
+
+    const {
+      querySubmitted
+    } = useFormContext();
 
   // Detect type
   const isYouTube = !!item?.snippet;
@@ -27,6 +32,8 @@ export const CocktailCard = ({ item }) => {
   const nameYouTubeCocktail = item?.snippet?.title;
   const channelYouTube = item?.snippet?.channelTitle;
   const videoId = item?.id?.videoId;
+
+
 
   const handleFavourite = () => {
     const key = item?.idDrink ?? videoId ?? crypto.randomUUID();
@@ -54,32 +61,44 @@ export const CocktailCard = ({ item }) => {
     }
   }, [removeFavorite]);
 
+  const hasContent =
+  !!nameCocktail ||
+  !!nameYouTubeCocktail ||
+  !!thumbnailCocktail ||
+  !!instructionsCocktail ||
+  ingredients.length > 0 ||
+  (isYouTube && !!videoId);
+
+if (!hasContent) return null;
+
   return (
-    <div>
+    <div className="cocktailCard">
       {/* Names */}
       {nameCocktail && <h1>{nameCocktail}</h1>}
       {nameYouTubeCocktail && <h1>{nameYouTubeCocktail}</h1>}
 
       {/* Thumbnail */}
       {thumbnailCocktail && (
-        <img src={thumbnailCocktail} alt={nameCocktail ?? "cocktail"} />
+        <img src={thumbnailCocktail} alt={nameCocktail ?? "cocktail"} className="object-fill"/>
       )}
 
       {/* Cocktail details */}
-      {categoryCocktail && <h3>{categoryCocktail}</h3>}
-      {alcoholCocktail && <h3>{alcoholCocktail}</h3>}
-      {glassCocktail && <h3>{glassCocktail}</h3>}
-      {instructionsCocktail && <p>{instructionsCocktail}</p>}
+      
+      {alcoholCocktail && <div className="card-categories"><span>Alcohol free: </span><h3>{alcoholCocktail}</h3></div> }
+      {glassCocktail && <div className="card-categories"><span>Glass type: </span><h3>{glassCocktail}</h3></div> }
+      {categoryCocktail && <div className="card-categories"><span>Drink category: </span><h3>{categoryCocktail}</h3></div>}
+      
+      {instructionsCocktail && <div><h3 className="font-bold text-red-600 font-josefinSansUni md:text-xl my-4">Recipe:</h3><h3>{instructionsCocktail}</h3></div>}
 
       {/* YouTube description */}
       {description && <h3>{description}</h3>}
 
       {/* Ingredients */}
       {ingredients.length > 0 && (
-        <>
-          <h3>Ingredients</h3>
+        <div>
+          <h3 className="font-bold text-red-600 font-josefinSansUni md:text-xl my-4">Ingredients:</h3>
           <ul>{ingredients.map((line, i) => <li key={i}>{line}</li>)}</ul>
-        </>
+          </div>
       )}
 
       {/* YouTube video */}
@@ -97,7 +116,9 @@ export const CocktailCard = ({ item }) => {
       )}
 
       {/* Buttons */}
-      <div className="buttonSelectionMenu">
+
+      {
+      (<div className="buttonSelectionMenu">
         {(!item?.strIngredient1 || item?.strIngredient1 === "") && (
           <button className="searchButton">Try to find more</button>
         )}
@@ -108,7 +129,7 @@ export const CocktailCard = ({ item }) => {
           Remove
         </button>
         <button className="searchButton">Share</button>
-      </div>
+      </div>)}
     </div>
   );
 };

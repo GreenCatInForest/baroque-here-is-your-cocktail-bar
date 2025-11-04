@@ -11,127 +11,70 @@ export const CocktailsContainer = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const apiKey = process.env.XRapidAPIKey;
-  console.log(querySubmitted);
+  const apiKey = process.env.REACT_APP_XRapidAPIKey; // ✅ correct prefix
 
   const fetchCocktails = useCallback(
     async (querySubmitted) => {
       setIsLoading(true);
-      console.log(querySubmitted);
 
       const urls = [
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.ingredientQuery}`, // search ingredient in ingredient database
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`, // search ingredient in name database
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.ingredientQuery}`,
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${querySubmitted.ingredientQuery}`,
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${querySubmitted.categoryQuery}`,
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${querySubmitted.alcoholQuery}`,
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${querySubmitted.nameQuery}`,
       ];
 
       try {
-        const data = await Promise.all(
+        const responses = await Promise.all(
           urls.map((url) =>
             axios
-              .get(url, {
-                headers: {
-                  "X-RapidAPI-Key": apiKey,
-                },
-              })
-              .then((response) => response.data.drinks)
+              .get(url, { headers: { "X-RapidAPI-Key": apiKey } })
+              .then((r) => r.data.drinks)
+              .catch(() => null)
           )
         );
 
-        const tempCocktailData = [].concat(...data);
+        const arrays = responses.map((a) => (Array.isArray(a) ? a : []));
+        const tempCocktailData = arrays
+          .flat()
+          .filter((item) => item && item.idDrink && item.strDrink);
+
         setData(tempCocktailData);
       } catch (error) {
-        setError(error);
+        setError(error.message || String(error));
+      } finally {
+        setIsLoading(false);
       }
-
-      setIsLoading(false);
     },
     [setData, apiKey]
   );
 
   useEffect(() => {
-    fetchCocktails(querySubmitted);
+    if (querySubmitted) fetchCocktails(querySubmitted);
   }, [querySubmitted, fetchCocktails]);
 
-  // filter the data to remove any undefined, null, or empty data
-  let filteredArray = [];
-
-  // check if the data is array
-  Array.isArray(data)
-    ? // filter falsy data from the array
-      (filteredArray = data.filter((item) => {
-        return (
-          item !== undefined && item !== null && item !== ""
-          // check if the recipe is available. If not, it'll not be displayed
-          // && item.hasOwnProperty("strDrinkThumb")
-          //  && item.hasOwnProperty("strIngredient1")
-          //     "strIngredient2" ||
-          //     "strIngredient3" ||
-          //     "strIngredient4" ||
-          //     "strIngredient5"
-          // )
-        );
-      }))
-    : (filteredArray = []);
-
-  // additional request if needed to get the recipe
-
-  const handleAdditionalSearch = () => {
-    console.log("Additional search");
-  };
-  // let additionalRequestData = [];
-
-  // Array.isArray(filteredArray) &&
-  //   filteredArray.map(async (item) => {
-  //     !item.hasOwnProperty("strIngredient1")
-  //       ? await axios
-  //           .get(
-  //             `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item.strDrink}`,
-  //             {
-  //               headers: {
-  //                 "X-RapidAPI-Key": apiKey,
-  //               },
-  //             }
-  //           )
-  //           .then((response) => response.data.drinks)
-  //           .then((data) => {
-  //             let cleanData = data.flat([[[]]]);
-  //             console.log(cleanData);
-  //             return additionalRequestData.push(cleanData);
-  //           })
-  //           .catch((error) => setError(error))
-  //       : console.log("No additional request needed");
-  //   });
-
-  // console.log(additionalRequestData);
+  const filteredArray = Array.isArray(data)
+    ? data.filter((item) => item && item.idDrink && item.strDrink)
+    : [];
 
   return (
     <div className="cocktailsContainer">
       {isLoading && <h2>Loading...</h2>}
-      {error && (
-        <h2>
-          It seems something went wrong. Try again with another query please{" "}
-          {error}
-        </h2>
-      )}
+      {error && <h2>It seems something went wrong: {error}</h2>}
       {filteredArray.length === 0 && querySubmitted && (
-        <h2>No cocktails found. Try another query</h2>
+        <h2>No cocktails found. Try another query.</h2>
       )}
       {filteredArray.length === 0 && !querySubmitted && (
-        <h2>You have no cocktails yet, let's find something for you!</h2>
+        <h2>You have no cocktails yet — let’s find something for you!</h2>
       )}
-      {!filteredArray ? (
-        <h2>You have no cocktails yet, let's find something for you!</h2>
-      ) : (
-        <div className="cocktailsMiniContainer">
-          {/* if the data is not complete generate additional request button */}
-
-          {filteredArray.map((item) => (
-            <CocktailCard key={item.idDrink} item={item} />
-          ))}
-        </div>
+      {filteredArray.length > 0 && (
+          filteredArray.map((item) => (
+            <div key={item.idDrink} className="cocktailCardWrapper">
+            <CocktailCard item={item} />
+            </div>
+          ))
+ 
       )}
     </div>
   );

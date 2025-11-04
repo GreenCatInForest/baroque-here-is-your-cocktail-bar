@@ -21,9 +21,12 @@ code {
 /* Custom styles */
 
 @layer base {
-  body {
-    @apply min-h-screen;
-  }
+
+
+#root {
+  @apply flex flex-col min-h-screen justify-between overflow-x-hidden
+}
+  
   /* 
   .lightTheme {
     @apply bg-white
@@ -66,6 +69,15 @@ code {
     justify-between 
     text-center mx-auto p-4;
   }
+
+  .navList a {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .navList a:hover {
+  /* Fake bold effect without changing width */
+  text-shadow: 0 0 0.5px currentColor, 0 0 0.5px currentColor;
+}
 
   .toggleDarkThemeContainer {
     @apply flex 
@@ -157,7 +169,6 @@ code {
   .formCocktailSearch input,
   .formCocktailSearch select {
     @apply w-full
-    md:w-auto
     text-center
     rounded-md;
   }
@@ -174,6 +185,14 @@ code {
 
   .formCocktailSearchWrapperAlcohol input {
     @apply w-4;
+  }
+
+  [type='radio']:checked {
+    @apply bg-red-600;
+  }
+
+ [type='radio']:focus {
+    @apply ring-red-600 ring-offset-0;
   }
 
   /* Youtube Form */
@@ -206,13 +225,17 @@ code {
     @apply border
     border-gray-900
     border-spacing-1
+    bg-red-600
     py-2 
-    px-4 
+    px-6 
     rounded 
-    hover:shadow-lg 
-    transition 
+    hover:shadow-xl
+    hover:text-red-600
+    font-bold
+    hover:bg-white
+    transition-all 
     duration-300 
-    ease-in-out
+    ease-linear
     shadow-gray-900
     shadow-sm;
 
@@ -253,19 +276,15 @@ code {
   /* Cocktail Container */
 
   .cocktailsContainer {
-    @apply max-w-screen-xl 
-    grid 
-    grid-flow-row-dense
+    @apply flex flex-row flex-wrap gap-4 
     text-center
-    align-middle
-    items-center
-    mx-auto 
-    p-4;
+    mx-auto
+    p-16;
   }
 
   .cocktailsContainer h2 {
     @apply font-josefinSansUni 
-    w-1/2
+    w-full
     font-bold 
     text-3xl 
     md:text-4xl 
@@ -274,16 +293,24 @@ code {
     text-center items-center mx-auto p-4;
   }
 
+  .cocktailCardWrapper {
+    @apply flex 
+    w-full 
+    sm:w-[calc(50%-0.5rem)] 
+    md:w-[calc(33.333%-0.67rem)] 
+    lg:w-[calc(25%-0.75rem)]; 
+  }
+
   /* cocktails card mini container  */
 
   .cocktailsMiniContainer {
-    @apply grid
-    grid-cols-1 
-    md:grid-cols-2 
-    lg:grid-cols-3 
-    gap-4 
-    md:gap-5
-    text-center;
+    @apply w-[40%] 
+    flex 
+    flex-row 
+    justify-stretch 
+    items-center 
+    grow 
+    h-full
   }
 
   /* cocktail card */
@@ -293,11 +320,41 @@ code {
     dark:bg-gray-900 
     shadow-md 
     dark:shadow-lg 
-    p-4 
+    border-[1px]
+    border-neutral-300
+    w-full
+    py-4 px-6
     rounded-md 
     text-center 
     items-center 
-    justify;
+    justify-between
+    flex flex-col grow h-full gap-4;
+  }
+
+  .cocktailCard h1 {
+    @apply font-josefinSansUni 
+    font-bold 
+    text-xl 
+    md:text-4xl 
+    text-red-600
+    justify-center 
+    text-center items-center mx-auto p-4;
+  }
+
+  .cocktailCard img {
+    @apply rounded-xl w-[300px] ;
+  }
+
+  .card-categories {
+    @apply flex flex-row justify-center gap-2;
+  }
+
+  .card-categories span {
+    @apply italic;
+  }
+
+  .card-categories h3 {
+    @apply font-bold italic;
   }
 
   .cocktailImg {
@@ -309,7 +366,8 @@ code {
     flex-row
     flex-wrap 
     justify-center
-    gap-3;
+    gap-3
+    mt-auto;
   }
 
   /* cocktailsContainerYoutube */
@@ -383,7 +441,7 @@ code {
   }
   /* Explore Page */
 
-  .exploreSearchContainer {
+  .cardContainer {
     @apply grid grid-flow-row-dense 
     py-8
     mx-auto
@@ -393,15 +451,15 @@ code {
     text-center
     md:text-left;
   }
-
-  .exploreSearchContainer article {
+/* 
+  .cardContainer article {
     @apply grid
     grid-flow-row-dense
     grid-cols-1
     gap-y-8;
-  }
+  } */
 
-  .exploreSearchContainer h2 {
+  .cardContainer h2 {
     @apply font-josefinSansUni 
     mb-3
     font-bold 

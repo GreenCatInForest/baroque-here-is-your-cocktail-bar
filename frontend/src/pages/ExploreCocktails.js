@@ -21,8 +21,8 @@ export const ExploreCocktails = () => {
   } = useFormContext();
 
   return (
-    <div className="theme">
-      <div className="exploreSearchContainer">
+    <div className="theme flex grow h-full flex-col">
+      <div className="cardContainer">
         <article>
           <h2>Explore</h2>
           <YouTubeForm
@@ -51,6 +51,10 @@ export const ExploreCocktails = () => {
           />
         </article>
       </div>
+      
+      {querySubmitted&&
+      (
+      <div className="">
       <CocktailsContainer
         query={query}
         setQuery={setQuery}
@@ -58,7 +62,9 @@ export const ExploreCocktails = () => {
         setData={setData}
         querySubmitted={querySubmitted}
         setQuerySubmitted={setQuerySubmitted}
-      />
+        />
+        </div>
+      )}
     </div>
-  );
-};
+  )}
+

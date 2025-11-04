@@ -62,7 +62,7 @@ export const Form = ({
           type="text"
           name="nameQuery"
           id="nameQuery"
-          placeholder="Search by Name"
+          placeholder="Enter the name: Margarita or Muai Tai"
           value={query.nameQuery}
           onChange={handleNameChange}
         />
@@ -70,47 +70,47 @@ export const Form = ({
           type="text"
           name="ingredientQuery"
           id="ingredientQuery"
-          placeholder="Search by Ingredient"
+          placeholder="Enter the ingredient: tekila or rum"
           value={query.ingredientQuery}
           onChange={handleIngredientChange}
         />
-        <label htmlFor="categoryQuery">Search by Category</label>
+        <label htmlFor="categoryQuery">Choose your drink type</label>
         <select
           id="categoryQuery"
           name="categoryQuery"
           value={selectedOption}
           onChange={handleSelect}
         >
-          <option value="">Choose your drink type</option>
-          <option value="Ordinary Drink">Ordinary Drink</option>
           <option value="Cocktail">Cocktail</option>
+          <option value="Shot">Shot</option>
+          <option value="Ordinary Drink">Ordinary Drink</option>
           <option value="Milk / Float / Shake">Milk / Float / Shake</option>
           <option value="Other/Unknown">Other/Unknown</option>
           <option value="Cocoa">Cocoa</option>
-          <option value="Shot">Shot</option>
           <option value="Coffee / Tea">Coffee / Tea</option>
           <option value="Homemade Liqueur">Homemade Liqueur</option>
         </select>
         <div className="formCocktailSearchWrapperAlcohol">
           <label htmlFor="Alcoholic">Alcohol</label>
           <input
-            type="checkbox"
+            type="radio"
             id="Alcoholic"
-            name="Alcoholic"
+            name="alcohol"
             value="Alcoholic"
             onChange={handleCheck}
           />
           <label htmlFor="Non_Alcoholic">Non Alcohol</label>
           <input
-            type="checkbox"
+            type="radio"
             id="Non_Alcoholic"
-            name="Non_Alcoholic"
+            name="alcohol"
             value="Non_Alcoholic"
             onChange={handleCheck}
           />
         </div>
-        <button className="searchButton" type="submit">
-          Search
+        <button className="searchButton flex flex-row justify-center items-center gap-2 text-white" type="submit">
+          <span className="text-lg font-bold">𐃯</span> 
+          <span>Search</span>
         </button>
       </form>
     </>
