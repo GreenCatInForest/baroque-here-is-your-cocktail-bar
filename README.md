@@ -24,7 +24,7 @@
 ![Mobile View](./screenshots/mobile-view.png)
 *Fully responsive design works seamlessly on all devices*
 
-> 📝 *Note: Add actual screenshots to a `/screenshots` folder in your repo*
+
 
 ---
 
