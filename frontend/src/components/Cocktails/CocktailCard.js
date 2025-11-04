@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 export const CocktailCard = ({ item }) => {
   const [newFavorite, setNewFavorite] = useState(null);
   const [removeFavorite, setRemoveFavorite] = useState(null);
