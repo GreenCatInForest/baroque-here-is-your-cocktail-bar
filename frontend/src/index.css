@@ -441,7 +441,7 @@ code {
   /* Footer */
 
   .footerWrapper {
-    @apply max-w-screen-xl 
+    @apply 
     flex 
     flex-wrap 
     flex-col 
