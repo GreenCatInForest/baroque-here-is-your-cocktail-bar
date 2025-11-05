@@ -276,7 +276,7 @@ code {
   /* Cocktail Container */
 
   .cocktailsContainer {
-    @apply flex flex-row flex-wrap gap-4 
+    @apply flex flex-row flex-wrap gap-4 justify-center 
     text-center
     mx-auto
     p-16;
@@ -298,7 +298,6 @@ code {
     w-full 
     sm:w-[calc(50%-0.5rem)] 
     md:w-[calc(33.333%-0.67rem)] 
-    lg:w-[calc(25%-0.75rem)]; 
   }
 
   /* cocktails card mini container  */
@@ -309,6 +308,7 @@ code {
     flex-row 
     justify-stretch 
     items-center 
+    gap-4
     grow 
     h-full
   }

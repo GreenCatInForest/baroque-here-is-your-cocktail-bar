@@ -71,7 +71,7 @@ export const Form = ({
           type="text"
           name="ingredientQuery"
           id="ingredientQuery"
-          placeholder="Enter the ingredient: tekila or rum"
+          placeholder="Enter the ingredient: rum or soda"
           value={query.ingredientQuery}
           onChange={handleIngredientChange}
         />

@@ -55,7 +55,7 @@ export const CocktailsContainer = ({
   }, [querySubmitted, fetchCocktails]);
 
   const filteredArray = Array.isArray(data)
-    ? data.filter((item) => item && item.idDrink && item.strDrink)
+    ? data.filter((item) => item && item.idDrink && item.strDrink &&item.strInstructions &&item.strIngredient1)
     : [];
 
   return (
