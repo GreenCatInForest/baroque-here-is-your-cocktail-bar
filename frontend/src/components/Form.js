@@ -58,6 +58,7 @@ export const Form = ({
           templateExplore === "" ? "formCocktailSearch" : templateExplore // apply different styles to form
         }
       >
+        <h2>Our Cocktail Recipes</h2>
         <input
           type="text"
           name="nameQuery"

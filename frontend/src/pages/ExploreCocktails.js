@@ -20,10 +20,11 @@ export const ExploreCocktails = () => {
     setQueryYouTube,
   } = useFormContext();
 
+
   return (
     <div className="theme flex grow h-full flex-col">
-      <div className="cardContainer">
-        <article>
+      <div className="cardContainer h-full grow">
+        <article className="flex flex-col gap-16">
           <h2>Explore</h2>
           <YouTubeForm
             dataYouTube={dataYouTube}
@@ -39,9 +40,7 @@ export const ExploreCocktails = () => {
               queryYouTube={queryYouTube}
               setQueryYouTube={setQueryYouTube}
             />
-          )}
-
-          <h2>Find Cocktail Recipes</h2>
+          )} 
           <Form
             query={query}
             setQuery={setQuery}
